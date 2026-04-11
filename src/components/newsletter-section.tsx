@@ -7,15 +7,24 @@ import { Send, Sparkles } from "lucide-react";
 export function NewsletterSection() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const isError = status === "error";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setStatus("loading");
-    // Simulate API call
-    await new Promise((r) => setTimeout(r, 1000));
-    setStatus("success");
-    setEmail("");
+    try {
+      const res = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (!res.ok) throw new Error("Failed");
+      setStatus("success");
+      setEmail("");
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -86,6 +95,11 @@ export function NewsletterSection() {
               </form>
             )}
 
+            {isError && (
+              <p className="text-xs text-red-400 mt-3">
+                Something went wrong — please try again.
+              </p>
+            )}
             <p className="text-xs text-foreground/30 mt-4">
               No spam, ever. Unsubscribe in one click.
             </p>

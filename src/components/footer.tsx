@@ -91,7 +91,9 @@ export function Footer() {
             © {new Date().getFullYear()} The Neural Dispatch. All rights reserved.
           </p>
           <p className="text-xs text-foreground/30">
-            Built with Next.js · Deployed on Vercel
+            A publication of{" "}
+            <span className="text-foreground/50 font-medium">Apollo Technologies US</span>
+            {" "}· Built with Next.js
           </p>
         </div>
       </div>
