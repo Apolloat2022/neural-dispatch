@@ -1,0 +1,184 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --background: 222 47% 7%;
+    --foreground: 220 60% 95%;
+    --card: 222 40% 10%;
+    --card-foreground: 220 60% 95%;
+    --popover: 222 40% 10%;
+    --popover-foreground: 220 60% 95%;
+    --primary: 192 100% 50%;
+    --primary-foreground: 222 47% 7%;
+    --secondary: 222 30% 15%;
+    --secondary-foreground: 220 60% 95%;
+    --muted: 222 30% 15%;
+    --muted-foreground: 220 20% 60%;
+    --accent: 192 100% 50%;
+    --accent-foreground: 222 47% 7%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 60% 95%;
+    --border: 222 30% 18%;
+    --input: 222 30% 18%;
+    --ring: 192 100% 50%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 220 40% 97%;
+    --foreground: 222 47% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 10%;
+    --primary: 192 100% 40%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 92%;
+    --secondary-foreground: 222 47% 10%;
+    --muted: 220 20% 92%;
+    --muted-foreground: 222 20% 45%;
+    --accent: 192 100% 40%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 20% 85%;
+    --input: 220 20% 85%;
+    --ring: 192 100% 40%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  .glass-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%);
+    @apply backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+  .gradient-border {
+    position: relative;
+  }
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(0,212,255,0.4) 0%, rgba(0,212,255,0.05) 50%, rgba(0,212,255,0.2) 100%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#00d4ff] to-[#7a90ff];
+  }
+  .cyber-grid-bg {
+    background-image: linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+  .glow-cyan {
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.15), 0 0 40px rgba(0, 212, 255, 0.05);
+  }
+  .glow-cyan-strong {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.3), 0 0 60px rgba(0, 212, 255, 0.1);
+  }
+}
+
+/* Prose styles for MDX content */
+.prose-neural {
+  @apply text-foreground/90 leading-relaxed;
+}
+.prose-neural h1 {
+  @apply text-3xl font-heading font-bold text-foreground mt-8 mb-4;
+}
+.prose-neural h2 {
+  @apply text-2xl font-heading font-semibold text-foreground mt-8 mb-3 pb-2 border-b border-border;
+}
+.prose-neural h3 {
+  @apply text-xl font-heading font-semibold text-foreground mt-6 mb-2;
+}
+.prose-neural p {
+  @apply mb-5 text-foreground/85 leading-7;
+}
+.prose-neural a {
+  @apply text-[#00d4ff] hover:text-[#00d4ff]/80 underline underline-offset-2 transition-colors;
+}
+.prose-neural ul {
+  @apply list-disc list-inside mb-5 space-y-2 text-foreground/85 ml-4;
+}
+.prose-neural ol {
+  @apply list-decimal list-inside mb-5 space-y-2 text-foreground/85 ml-4;
+}
+.prose-neural li {
+  @apply leading-7;
+}
+.prose-neural blockquote {
+  @apply border-l-4 border-[#00d4ff]/60 pl-6 py-1 my-6 italic text-foreground/70 bg-white/5 rounded-r-lg;
+}
+.prose-neural code {
+  @apply bg-white/10 text-[#00d4ff] px-1.5 py-0.5 rounded text-sm font-mono;
+}
+.prose-neural pre {
+  @apply bg-white/5 border border-white/10 rounded-xl p-5 overflow-x-auto my-6;
+}
+.prose-neural pre code {
+  @apply bg-transparent text-foreground p-0 text-sm;
+}
+.prose-neural strong {
+  @apply font-semibold text-foreground;
+}
+.prose-neural hr {
+  @apply border-border my-8;
+}
+.prose-neural img {
+  @apply rounded-xl w-full my-6 border border-white/10;
+}
+.prose-neural table {
+  @apply w-full border-collapse my-6;
+}
+.prose-neural th {
+  @apply bg-white/10 text-left px-4 py-2 font-semibold border border-border;
+}
+.prose-neural td {
+  @apply px-4 py-2 border border-border text-foreground/80;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255,255,255,0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,212,255,0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,212,255,0.5);
+}
+
+/* Selection */
+::selection {
+  background: rgba(0,212,255,0.25);
+  color: #f0f4ff;
+}
