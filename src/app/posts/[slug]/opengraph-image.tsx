@@ -5,11 +5,12 @@ export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 interface Props {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
-export default function Image({ params }: Props) {
-  const post = getPostBySlug(params.slug);
+export default async function Image({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   const title = post?.frontmatter.title ?? "The Neural Dispatch";
   const category = post?.frontmatter.category ?? "";
   const excerpt = post?.frontmatter.excerpt ?? "";

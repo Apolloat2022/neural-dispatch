@@ -21,26 +21,28 @@ const categoryDescriptions: Record<string, string> = {
 };
 
 interface PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }
 
 export function generateStaticParams() {
   return VALID_CATEGORIES.map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: PageProps): Metadata {
-  const label = categoryLabels[params.slug];
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const label = categoryLabels[slug];
   if (!label) return {};
   return {
     title: `${label} — The Neural Dispatch`,
-    description: categoryDescriptions[params.slug],
+    description: categoryDescriptions[slug],
   };
 }
 
-export default function CategoryPage({ params }: PageProps) {
-  if (!VALID_CATEGORIES.includes(params.slug)) notFound();
+export default async function CategoryPage({ params }: PageProps) {
+  const { slug } = await params;
+  if (!VALID_CATEGORIES.includes(slug)) notFound();
 
-  const label = categoryLabels[params.slug];
+  const label = categoryLabels[slug];
 
   // Map URL slug to frontmatter category
   const categoryMap: Record<string, string> = {
@@ -54,7 +56,7 @@ export default function CategoryPage({ params }: PageProps) {
   const posts = allPosts.filter(
     (p) =>
       p.frontmatter.category.toLowerCase() ===
-      (categoryMap[params.slug] ?? params.slug)
+      (categoryMap[slug] ?? slug)
   );
 
   return (
@@ -67,7 +69,7 @@ export default function CategoryPage({ params }: PageProps) {
             {label}
           </h1>
           <p className="text-foreground/55 max-w-lg mx-auto">
-            {categoryDescriptions[params.slug]}
+            {categoryDescriptions[slug]}
           </p>
         </div>
 

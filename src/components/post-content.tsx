@@ -16,17 +16,15 @@ import { CategoryBadge } from "./category-badge";
 import { PostCard } from "./post-card";
 import { SectionHeader } from "./section-header";
 import { formatDate } from "@/lib/format-date";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
 
 interface PostContentProps {
   post: Post;
   related: Post[];
+  children: React.ReactNode;
 }
 
-export function PostContent({ post, related }: PostContentProps) {
-  const { frontmatter, content, slug } = post;
+export function PostContent({ post, related, children }: PostContentProps) {
+  const { frontmatter, slug } = post;
 
   const shareUrl = `https://neuraldispatch.com/posts/${slug}`;
 
@@ -134,15 +132,7 @@ export function PostContent({ post, related }: PostContentProps) {
         className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
       >
         <div className="prose-neural">
-          <MDXRemote
-            source={content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [rehypeSlug],
-              },
-            }}
-          />
+          {children}
         </div>
 
         {/* Tags */}
