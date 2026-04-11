@@ -17,7 +17,7 @@ A production-ready static blog built for **Apollo Technologies US**, featuring a
 | Theming | next-themes (dark / light) |
 | Email | Resend API (newsletter subscriptions) |
 | Deployment | Vercel (auto-deploy on push) |
-| Automation | PicoClaw + OpenClaw (Claude API) |
+| Automation | PicoClaw (Google Gemini / Groq) + OpenClaw (Local Ollama) |
 
 ---
 
