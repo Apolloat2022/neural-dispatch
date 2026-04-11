@@ -7,15 +7,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid email address" }, { status: 400 });
   }
 
+  // Always log the subscriber server-side (visible in Vercel function logs)
+  console.log(`[subscribe] New subscriber: ${email}`);
+
   const apiKey = process.env.RESEND_API_KEY;
   const notifyEmail = process.env.NOTIFY_EMAIL;
 
+  // If Resend isn't configured, still succeed — subscription is captured in logs
   if (!apiKey || !notifyEmail) {
-    // Env vars not configured — still return success in development
-    console.log(`[subscribe] New subscriber: ${email} (email not sent — env vars missing)`);
+    console.log(`[subscribe] Resend not configured — subscriber logged only`);
     return NextResponse.json({ success: true });
   }
 
+  // Attempt to send notification email — but never fail the subscriber if it errors
   try {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -26,7 +30,7 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         from: "Neural Dispatch <onboarding@resend.dev>",
         to: [notifyEmail],
-        subject: "New subscriber: The Neural Dispatch",
+        subject: `New subscriber: ${email}`,
         html: `
           <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; padding: 32px;">
             <h2 style="color: #0a0f1e; margin-bottom: 8px;">New newsletter subscriber</h2>
@@ -44,13 +48,15 @@ export async function POST(request: Request) {
 
     if (!res.ok) {
       const err = await res.text();
-      console.error("[subscribe] Resend error:", err);
-      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+      console.error(`[subscribe] Resend error (subscriber still accepted): ${err}`);
+    } else {
+      console.log(`[subscribe] Notification sent to ${notifyEmail}`);
     }
-
-    return NextResponse.json({ success: true });
   } catch (err) {
-    console.error("[subscribe] Unexpected error:", err);
-    return NextResponse.json({ error: "Server error" }, { status: 500 });
+    // Log but don't surface the error to the subscriber
+    console.error(`[subscribe] Resend fetch failed (subscriber still accepted):`, err);
   }
+
+  // Always return success — the email capture is what matters
+  return NextResponse.json({ success: true });
 }
