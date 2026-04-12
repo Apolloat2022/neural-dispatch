@@ -76,7 +76,7 @@ export function Navbar() {
             <div className="flex items-center gap-3">
               <ThemeToggle />
               <Link
-                href="#newsletter"
+                href="/newsletter"
                 className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] text-sm font-medium hover:bg-[#00d4ff]/20 hover:border-[#00d4ff]/60 transition-all duration-200"
               >
                 Subscribe
@@ -122,7 +122,7 @@ export function Navbar() {
               ))}
               <div className="mt-2 pt-2 border-t border-border/40">
                 <Link
-                  href="#newsletter"
+                  href="/newsletter"
                   className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] text-sm font-medium"
                 >
                   Subscribe to Newsletter
