@@ -1,0 +1,57 @@
+---
+title: "Vibe Coding Is Now a Real Workflow: How Non-Developers Are Shipping Production Software"
+date: "2026-05-05"
+category: "Tools"
+excerpt: "What started as a provocative term from Andrej Karpathy has become a legitimate development paradigm. Non-technical founders, designers, and operators are shipping production apps — and the tools enabling it have matured faster than anyone expected."
+tags: ["vibe-coding", "cursor", "ai-tools", "software-development", "lovable", "claude", "no-code"]
+readTime: "5 min read"
+featured: false
+author: "Jordan Matthews"
+authorRole: "Senior Tech Correspondent"
+---
+
+In February 2025, Andrej Karpathy posted a short note about a new way he was writing software: describing what he wanted in natural language, accepting AI suggestions almost entirely without reading them, and running the result to see what happened. He called it **vibe coding** — "not really coding" in the traditional sense, but something that produced working software.
+
+The term landed. Eighteen months later, it's not just a description of how experienced engineers occasionally work. It's the primary workflow for a meaningful slice of people shipping software products today.
+
+## What Vibe Coding Actually Means in Practice
+
+Vibe coding isn't about ignoring code quality or shipping recklessly. At its core, it's a shift in where the human spends cognitive effort: on intent and outcome, not on syntax and implementation.
+
+The typical workflow looks like this:
+
+- **Describe the feature or app** in plain language — "a dashboard that pulls from our Postgres database and shows monthly revenue by region with filtering"
+- **Let the AI write the implementation** — Cursor, Claude Code, or similar tools generate the code, often including boilerplate, database queries, and component structure
+- **Review outputs functionally** — does it work? Does it do what was asked? Fix by describing the problem, not by editing code directly
+- **Iterate** — most vibe coders never touch raw code except to copy-paste what the AI provides
+
+The defining characteristic is that the human remains the product decision-maker and the AI handles implementation. For many use cases, this is sufficient.
+
+## The Tools That Made It Real
+
+Three categories of tooling enabled vibe coding to mature from experiment to workflow:
+
+**AI-first editors.** Cursor pioneered the IDE built around AI collaboration rather than bolted-on autocomplete. The ability to describe changes in natural language and have them applied across multiple files simultaneously changed the unit of work from "line of code" to "described intent."
+
+**Deployment-integrated builders.** Lovable (formerly GPT Engineer), Bolt, and Replit's AI layer collapsed the gap between "AI writes code" and "that code is running somewhere." Non-technical users can now go from description to deployed URL without setting up a development environment.
+
+**Capable frontier models.** The underlying shift is model capability. Claude Sonnet, GPT-4o, and their successors can hold enough context about a codebase and produce reliable enough implementations that the vibe coder's edit-run-describe loop actually converges on working software.
+
+## Who Is Actually Doing This
+
+The archetype of the vibe coder in 2026 is not the lazy senior engineer. It's:
+
+- **Technical founders** who understand systems but don't want to spend time on implementation
+- **Operators and PMs** who need internal tooling built without waiting in the engineering queue
+- **Designers** who want to prototype interactively rather than hand off specs
+- **Non-technical domain experts** — a lawyer who wants a contract comparison tool, a marketer who wants a reporting dashboard
+
+The constraint is no longer "can you write code." It's "can you describe what you want precisely enough and evaluate whether you got it."
+
+## The Limits Are Real
+
+Vibe coding has a ceiling. Complex systems with subtle distributed state, security-critical code, high-performance requirements, and large existing codebases don't yield to description-driven development in the same way. Senior engineers who've tried to vibe-code into an established monorepo know the failure modes: context drift, cascading incorrect assumptions, and debugging sessions that eat more time than writing would have.
+
+But for net-new projects, internal tools, and rapid prototyping, the ceiling is high enough that the tradeoff is clear. The question for engineering teams in 2026 isn't whether to allow vibe coding — it's how to capture its productivity gains while managing the code quality surface it introduces.
+
+The companies building developer tooling have noticed. Investment in AI coding assistants has shifted from "autocomplete that saves keystrokes" toward "agents that write whole features from a description." That shift in product direction is a bet on vibe coding as a default workflow, not a niche habit.
