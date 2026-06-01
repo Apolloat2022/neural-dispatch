@@ -84,10 +84,10 @@ export default function AboutPage() {
             Pitches, corrections, partnerships, or just want to talk AI?
           </p>
           <a
-            href="mailto:hello@neuraldispatch.com"
+            href="mailto:robinpandey@apollotechnologiesus.com"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#00d4ff]/10 border border-[#00d4ff]/30 text-[#00d4ff] font-medium hover:bg-[#00d4ff]/20 transition-all"
           >
-            hello@neuraldispatch.com
+            robinpandey@apollotechnologiesus.com
           </a>
         </div>
       </div>

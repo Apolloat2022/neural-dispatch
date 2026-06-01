@@ -41,7 +41,7 @@ export default function PrivacyPage() {
             <h2>Contact</h2>
             <p>
               Questions about your data? Reach us at{" "}
-              <a href="mailto:privacy@neuraldispatch.com">privacy@neuraldispatch.com</a>.
+              <a href="mailto:robinpandey@apollotechnologiesus.com">robinpandey@apollotechnologiesus.com</a>.
             </p>
           </section>
         </div>
