@@ -1,0 +1,44 @@
+---
+title: "The Agentic Paradox: Securing AI Agents Is Becoming the Real Bottleneck"
+date: "2026-06-01"
+category: "Industry"
+excerpt: "As enterprises deploy fleets of autonomous agents, the hard problem isn't capability — it's identity, access, and trust. Okta's deepening role and Palo Alto's 'agentic security' push signal where the next billions will be spent."
+tags: ["ai-agents", "security", "identity", "okta", "enterprise-ai", "governance"]
+readTime: "6 min read"
+featured: false
+author: "Jordan Matthews"
+authorRole: "Senior Tech Correspondent"
+---
+
+There's a paradox at the center of the enterprise agent boom, and the industry is finally naming it. The more capable autonomous agents become, the more dangerous they are to deploy — because an agent powerful enough to be useful is also powerful enough to do real damage if it's compromised, misdirected, or simply wrong. Red Hat's engineers have started calling this **"the agentic paradox,"** and it's quickly becoming the dominant theme of the enterprise AI conversation.
+
+The capability race is largely settled. The security and governance race is just beginning.
+
+## Agents Break the Identity Model
+
+Enterprise security was built around a simple assumption: a credential belongs to a *person*. Access controls, audit logs, and authentication flows all assume there's a human on the other end making decisions.
+
+Agents shatter that assumption. An autonomous agent acts continuously, at machine speed, often spinning up sub-tasks and calling other systems. Who *is* that agent in your identity system? What is it allowed to touch? When it takes an action, whose authority is it acting under — and can you prove it after the fact?
+
+This is why **Okta** is suddenly central to the agent story. The company is taking a deeper role in securing AI agents — extending identity and access management to non-human actors — and analysts are openly re-rating its prospects as a result. Its involvement in the cross-industry **EnterpriseClaw** platform (alongside NVIDIA, Cisco, and OpenAI) puts identity at the foundation of how enterprise agents get deployed, not bolted on afterward.
+
+## The New Attack Surface
+
+Every agent capability is also an attack surface:
+
+- **Prompt injection** — a malicious instruction hidden in a webpage or document can hijack an agent that reads it, turning the agent's own permissions against the organization
+- **Over-broad access** — agents granted standing access "to be safe" become high-value targets; compromise one and you inherit everything it can reach
+- **Cascading delegation** — in multi-agent systems, a compromised sub-agent can influence an entire pipeline, a failure mode that doesn't exist with a single human operator
+- **Machine-speed mistakes** — an agent doesn't pause to second-guess; an error propagates across systems before anyone notices
+
+Palo Alto Networks has responded by pitching a rethink of security for what it calls the "agentic AI factory" — security designed for workloads that detect and act at machine speed, because human-paced review can't keep up with agent-paced execution. The premise is that you can't secure agents with tools built for human users.
+
+## Why This Defines the Next Phase
+
+The lesson from the past year is that capability has outrun control. [OpenAI's Operator](/posts/openai-operator-agents-enterprise-2026) can navigate the open web; [Microsoft's computer-use agents](/posts/microsoft-copilot-studio-computer-use-agents-ga) can drive any enterprise application. Both inherit exactly the access a human operator would have — which is precisely the problem.
+
+This is the bet [Anthropic made with its multi-agent framework](/posts/anthropic-claude-multi-agent-enterprise): minimal-footprint permissions, skeptical sub-agents that resist illegitimate instructions, audit trails, and human-in-the-loop checkpoints. What looked like cautious over-engineering a few months ago now looks like the template the whole industry is converging on.
+
+The agentic paradox doesn't get resolved by making agents less capable. It gets resolved by building an identity, access, and governance layer purpose-built for non-human actors — and the companies that own that layer (Okta, Palo Alto, and whoever else moves fast) stand to capture an enormous share of enterprise AI spend.
+
+The agent economy's bottleneck has shifted. It's no longer "can the agent do it?" It's "can you trust it to — and prove it?"
