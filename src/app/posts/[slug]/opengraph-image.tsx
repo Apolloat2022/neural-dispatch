@@ -124,7 +124,7 @@ export default async function Image({ params }: Props) {
             }}
           >
             <span style={{ fontSize: "14px", color: "rgba(240,244,255,0.3)" }}>
-              neuraldispatch.com
+              dispatch.apollotechnologiesus.com
             </span>
           </div>
         </div>

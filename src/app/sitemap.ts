@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
 
-const BASE_URL = "https://neuraldispatch.com";
+const BASE_URL = "https://dispatch.apollotechnologiesus.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();

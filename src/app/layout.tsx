@@ -18,7 +18,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://neuraldispatch.com"),
+  metadataBase: new URL("https://dispatch.apollotechnologiesus.com"),
   title: {
     default: "The Neural Dispatch — AI Tools, Research & What's Actually Being Built",
     template: "%s | The Neural Dispatch",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://neuraldispatch.com",
+    url: "https://dispatch.apollotechnologiesus.com",
     siteName: "The Neural Dispatch",
     title: "The Neural Dispatch",
     description: "The frontline report on AI tools, breakthroughs, and what's actually being built.",

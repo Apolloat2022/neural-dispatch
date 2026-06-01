@@ -26,7 +26,7 @@ interface PostContentProps {
 export function PostContent({ post, related, children }: PostContentProps) {
   const { frontmatter, slug } = post;
 
-  const shareUrl = `https://neuraldispatch.com/posts/${slug}`;
+  const shareUrl = `https://dispatch.apollotechnologiesus.com/posts/${slug}`;
 
   const copyLink = () => {
     navigator.clipboard.writeText(shareUrl);

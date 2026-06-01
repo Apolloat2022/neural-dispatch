@@ -284,4 +284,4 @@ Categories are defined in `src/app/category/[slug]/page.tsx`. To add a new one:
 
 ## Built By
 
-**Apollo Technologies US** — [neuraldispatch.com](https://neuraldispatch.com)
+**Apollo Technologies US** — [dispatch.apollotechnologiesus.com](https://dispatch.apollotechnologiesus.com)
