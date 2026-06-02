@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: "*",
       allow: "/",
     },
-    sitemap: "https://dispatch.apollotechnologiesus.com/sitemap.xml",
+    sitemap: "https://apollotechnologiesus.com/neural-dispatch/sitemap.xml",
   };
 }
