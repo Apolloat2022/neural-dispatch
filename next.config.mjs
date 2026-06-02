@@ -15,6 +15,19 @@ const nextConfig = {
       },
     ],
   },
+  // The app lives under basePath, so the bare domain root would 404. Redirect it
+  // to /neural-dispatch. basePath:false targets the true root (not /neural-dispatch),
+  // which Next would otherwise auto-prefix.
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/neural-dispatch',
+        basePath: false,
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
