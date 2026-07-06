@@ -1,0 +1,49 @@
+---
+title: "Claude Sonnet 5 and the Great Commoditization of Agentic AI"
+date: "2026-07-03"
+category: "Tools"
+excerpt: "Anthropic's newest Sonnet runs autonomous agents at near-Opus quality for a fraction of the price. When frontier-grade agents get this cheap, the economics of the entire agent stack change."
+tags: ["anthropic", "claude", "sonnet-5", "ai-agents", "model-pricing", "agentic-ai"]
+readTime: "6 min read"
+featured: false
+author: "Jordan Matthews"
+authorRole: "Senior Tech Correspondent"
+---
+
+On June 30, Anthropic released **Claude Sonnet 5**, and the headline isn't a benchmark chart. It's a price tag. The company is calling it the most agentic Sonnet model yet — it plans, uses tools like browsers and terminals, and runs autonomously at a level that, just a few months ago, required larger and far more expensive models. Its performance lands close to Opus 4.8. Its price doesn't.
+
+Through August 31, Sonnet 5 costs **$2 per million input tokens and $10 per million output tokens**, before settling at the standard $3/$15. It's the new default model for Claude's Free and Pro plans, it's already generally available in GitHub Copilot, and developers can hit `claude-sonnet-5` on the API today.
+
+That combination — near-frontier agentic capability at mid-tier pricing — matters more than any single capability gain. Here's why.
+
+## Agents Are a Volume Business
+
+A chatbot answers a question and stops. An agent *keeps going* — it plans, calls tools, reads results, retries, and spawns sub-tasks. A single agentic workflow can burn through orders of magnitude more tokens than a chat session, and [enterprises are deploying these workflows by the thousands](/posts/mckinsey-20000-ai-agents-digital-workforce).
+
+That makes the cost per token the single biggest lever in agent economics. When [multi-agent systems orchestrate fleets of sub-agents](/posts/multi-agent-systems-enterprise-orchestration-2026), every planning step, every tool call, every retry is metered. A model that delivers Opus-class agentic reliability at Sonnet-class prices doesn't just make existing deployments cheaper — it makes entire categories of agent deployment *viable* that weren't before.
+
+## The Capability Floor Keeps Rising
+
+The pattern is now unmistakable. Capabilities debut at the frontier tier, then migrate down the price ladder within months:
+
+- **Autonomous tool use** — once the exclusive domain of flagship models, now table stakes in the mid-tier
+- **Long-horizon task execution** — Sonnet 5 sustains multi-step plans that previously demanded a larger model babysitting the loop
+- **Coding agents** — GitHub shipped Sonnet 5 into Copilot on launch day, a signal that mid-tier models now clear the bar for production coding work
+
+This is the same dynamic that played out in [the AI coding tools market](/posts/top-5-ai-coding-tools-2025), compressed into a shorter cycle. The frontier doesn't stop moving — but the gap between "best available" and "good enough for most agent workloads" is narrowing fast, and the price difference between them is not.
+
+## What It Means for the Agent Stack
+
+For enterprises, the calculus shifts in three ways.
+
+**Routing gets aggressive.** Orchestration layers already route easy tasks to cheap models and hard ones to expensive models. Sonnet 5 moves the routing boundary: far more of the workload now qualifies for the cheaper lane without a quality penalty.
+
+**Pilots become fleets.** The projects that stalled at the CFO's desk because agent token bills scaled linearly with usage get a second look. [OpenAI's own enterprise data](/posts/openai-enterprise-40-percent-agentic-shift-2026) shows agentic workloads are already the fastest-growing slice of usage — cheaper capable models pour fuel on that.
+
+**Differentiation moves up the stack.** When capable agent models are abundant and cheap, the moat isn't the model. It's the scaffolding around it — [the orchestration, permissions, and audit frameworks](/posts/anthropic-claude-multi-agent-enterprise) that make autonomous agents safe to deploy, and [the security layer](/posts/agentic-paradox-securing-ai-agents-2026) that makes them trustworthy.
+
+## The Introductory Price Is the Tell
+
+Anthropic pricing Sonnet 5 at $2/$10 out of the gate — undercutting its own standard rates for two months — reads like a land grab. The agent platform wars are being fought on unit economics now, not just capability. Google, OpenAI, and Anthropic all know the same thing: whoever's model is running inside the orchestration loop when enterprises scale from ten agents to ten thousand wins the annuity.
+
+The frontier model race made headlines for three years. The mid-tier price war will quietly decide who profits from the agent economy. Sonnet 5 just fired the loudest shot yet.
