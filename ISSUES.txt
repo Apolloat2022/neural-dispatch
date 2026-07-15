@@ -1,0 +1,11 @@
+Let's change direction. I do not need the apollo-marketing repository, and we are not migrating the root domain (www.apollotechnologiesus.com) over to Vercel. My main corporate website has deep content hosted on GitHub Pages, and it must stay exactly where it is.
+
+The neural-dispatch project is strictly a news/reporting arm of the business. Because GitHub Pages cannot handle reverse proxies or subdirectory rewrites to external servers, we are going to drop the subfolder approach (/neural-dispatch) and use a dedicated subdomain instead.
+
+Please guide me through the following execution steps:
+
+1. Look at my current neural-dispatch local project configuration. Since we previously set up a "basePath: '/neural-dispatch'" and complex root redirects in next.config.mjs to accommodate the subdirectory setup, tell me exactly how to revert or adjust those settings so the app functions natively on its own domain root.
+2. Provide the clean, updated next.config.mjs block.
+3. Help me connect this project directly to a Vercel deployment using an isolated subdomain (e.g., dispatch.apollotechnologiesus.com or quant.apollotechnologiesus.com). 
+
+Let's check the local configuration files first, clean up the codebase, and push the corrected architecture to the neural-dispatch repo.

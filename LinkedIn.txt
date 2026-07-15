@@ -1,0 +1,19 @@
+Been heads down building something I'm genuinely proud of.
+
+The Neural Dispatch — a weekly publication covering what's actually happening in AI. Not the hype, not the breathless press releases. The real signal: what's being built, what's being deployed, and what it means for how we work.
+
+This week's dispatches just went live and honestly this batch felt timely:
+
+→ Why the Forward Deployed Engineer is suddenly the hottest hire in AI (800% job growth in 2025 isn't a coincidence — the gap between what AI can do and what enterprises actually need is massive, and FDEs exist to close it)
+
+→ MCP is quietly becoming the USB standard for AI agents — Anthropic open-sourced it 18 months ago and now nearly every major tooling company has adopted it. The Linux Foundation just took stewardship. If you're building anything agentic, you need to understand this one.
+
+→ The shift from single AI agents to coordinated multi-agent systems is where the real enterprise results are coming from. Zapier deployed 800+ internal agents. Fountain cut staffing timelines from weeks to 72 hours. This isn't pilots anymore.
+
+If you're trying to cut through the noise on what's actually moving in AI — worth a bookmark.
+
+🔗 https://neural-dispatch-hazel.vercel.app/
+
+Would love to hear what topics you'd want covered next. Drop a comment or just subscribe — it's free.
+
+#AI #ArtificialIntelligence #AIAgents #FutureOfWork #TechTrends
