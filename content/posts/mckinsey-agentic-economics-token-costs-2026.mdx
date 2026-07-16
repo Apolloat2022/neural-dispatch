@@ -1,0 +1,44 @@
+---
+title: "Is That AI Agent Worth It? McKinsey's New Discipline of Agentic Economics"
+date: "2026-07-15"
+category: "Industry"
+excerpt: "Token prices keep falling, yet 93% of enterprises are blowing past their AI budgets. McKinsey's new framework explains why agents break the old math — and what CEOs must build to manage machine work."
+tags: ["mckinsey", "agentic-economics", "ai-costs", "enterprise-ai", "model-routing", "ai-agents"]
+readTime: "6 min read"
+featured: false
+author: "Jordan Matthews"
+authorRole: "Senior Tech Correspondent"
+---
+
+Inference got radically cheaper, and enterprise AI bills went up anyway. That's the paradox at the center of a new McKinsey Quarterly framework on what it calls **agentic economics** — and the numbers behind it are stark enough to reset how CEOs think about deploying agents.
+
+According to Stanford HAI, the cost of GPT-3.5-level capability fell from **$20 to $0.07 per million tokens** through 2024 — a 280x drop. Over that same window, Menlo Ventures found enterprise LLM spending **tripled** in the twelve months to end of 2025. **93% of surveyed enterprises report exceeding their AI budgets**, one-fifth have already throttled AI use because of operating costs, and AI spend is on track to reach roughly **25% of enterprise IT budgets**. As Pay-i CEO David Tepper puts it: "Tokens are not value; tokens are the bill."
+
+## Why Cheaper Tokens Didn't Mean Cheaper AI
+
+McKinsey's own infrastructure shows the scale of the shift: the firm now processes roughly **5 trillion tokens per month** as of May 2026, with about 10% of users driving 65% of consumption. The old assumption — that falling per-token prices would make AI cheap by default — only held for chat. Agents broke it, for six specific reasons:
+
+1. **Long-lived context.** Agents resend accumulated context at every step of a task, so agentic workloads can consume roughly **1,000x more tokens** than an equivalent chat interaction.
+2. **Refinement is the real sink.** Roughly **60% of an agentic task's total cost** goes to checking, repairing, and reverifying its own work — not producing the first answer.
+3. **Autonomy creates variance.** The identical task can cost **30x more in one run than another**. Agent cost is a distribution, not a fixed price.
+4. **Expensive reasoning on cheap tasks.** Extended thinking modes are pure overhead when applied to simple work, which makes routing decisions a direct cost lever.
+5. **Orchestration compounds cost.** How a task is decomposed and handed between agents changes total spend dramatically — a poorly designed handoff chain can multiply cost with no gain in quality.
+6. **Information structure matters.** Prompt formatting, verbosity, and even language choice (non-English text tokenizes less efficiently) all move consumption. McKinsey found that concise, direct "caveman language" prompting cut some workflows' token use by **30–40% with no quality loss**.
+
+## Governing Machine Work Like Capital
+
+McKinsey's prescription for CEOs treats agent deployment less like a software rollout and more like a capital allocation problem:
+
+- **Allocate intelligence like capital** — not every task gets the most capable, most expensive model.
+- **No autonomous system runs without a defined mandate, budget, and stopping rule.** Agents that can act indefinitely need an explicit cap, not an implicit one.
+- **Measure cost per completed business outcome, not per token.** Token counts are an input metric; they don't tell you if the work was worth doing.
+- **Treat contextual data capture as a strategic asset.** The context an agent has access to increasingly determines how well — and how cheaply — it performs.
+- **Rethink outsourcing.** Agents perform best with proprietary context kept in-house, which cuts against reflexively offshoring workflows that used to be commodity labor.
+
+## The Real Competitive Axis
+
+This is the agent hype cycle landing on the CFO's desk. Falling token prices were supposed to make AI adoption a formality; instead, agents absorbed the savings and then some, because they consume tokens in loops, retries, and self-verification rather than single clean requests. As frontier and mid-tier models converge in raw capability — see [Fable 5 at the expensive end and Sonnet 5 commoditizing the cheap end](/posts/claude-fable-5-mythos-class-frontier-agents) — the model itself stops being the differentiator. Governance of machine work becomes the moat: routing the right task to the right model, capping runaway agents, and measuring outcomes instead of tokens.
+
+That governance question has a data half too — an enterprise can have perfect routing discipline and still lose the plot if agents can't reliably and safely reach the content they need to do the work in the first place. [That's exactly the gap Box's new report on enterprise content quantifies](/posts/enterprise-content-bottleneck-agentic-ai-box-report-2026), and it pairs directly with McKinsey's own [20,000-agent internal deployment](/posts/mckinsey-20000-ai-agents-digital-workforce) as a real-world stress test of this framework.
+
+The winners of the next phase of enterprise AI won't be whoever has access to the best model — that access is becoming a commodity. They'll be whoever builds the discipline to govern what machines do with it.
