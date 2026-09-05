@@ -7,6 +7,8 @@ export type Subscriber = { email: string; date: string };
 // otherwise a local JSON file so dev works with zero setup.
 const KV_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
 const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+// Shared Upstash DB with other projects — namespace the key so it cannot collide.
+const KEY = "neural-dispatch:subscribers";
 const FILE = path.join(process.cwd(), "data", "subscribers.json");
 
 async function kv(command: unknown[]) {
@@ -23,7 +25,7 @@ async function kv(command: unknown[]) {
 export async function addSubscriber(email: string) {
   const entry: Subscriber = { email, date: new Date().toISOString() };
   if (KV_URL && KV_TOKEN) {
-    await kv(["LPUSH", "subscribers", JSON.stringify(entry)]);
+    await kv(["LPUSH", KEY, JSON.stringify(entry)]);
     return;
   }
   const all = await listSubscribers();
@@ -34,7 +36,7 @@ export async function addSubscriber(email: string) {
 
 export async function listSubscribers(): Promise<Subscriber[]> {
   if (KV_URL && KV_TOKEN) {
-    const rows: string[] = (await kv(["LRANGE", "subscribers", 0, -1])) ?? [];
+    const rows: string[] = (await kv(["LRANGE", KEY, 0, -1])) ?? [];
     return rows.map((r) => JSON.parse(r));
   }
   try {
