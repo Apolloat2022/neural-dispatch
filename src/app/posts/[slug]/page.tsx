@@ -1,10 +1,18 @@
 import { notFound } from "next/navigation";
+import Link from "next/link";
 import type { Metadata } from "next";
 import { getAllPosts, getPostBySlug, getRelatedPosts } from "@/lib/posts";
 import { PostContent } from "@/components/post-content";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+
+// Markdown links render as raw <a>, which skips the /neural-dispatch basePath and
+// 404s against the main app. next/link prefixes it; external hrefs pass through.
+const mdxComponents = {
+  a: ({ href = "", ...props }: React.ComponentProps<"a">) =>
+    href.startsWith("/") ? <Link href={href} {...props} /> : <a href={href} {...props} />,
+};
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -54,6 +62,7 @@ export default async function PostPage({ params }: PageProps) {
           rehypePlugins: [rehypeSlug],
         },
       }}
+      components={mdxComponents}
     />
   );
 
