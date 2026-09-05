@@ -5,8 +5,8 @@ export type Subscriber = { email: string; date: string };
 
 // Upstash/Vercel KV REST when configured (serverless has no writable disk),
 // otherwise a local JSON file so dev works with zero setup.
-const KV_URL = process.env.KV_REST_API_URL;
-const KV_TOKEN = process.env.KV_REST_API_TOKEN;
+const KV_URL = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+const KV_TOKEN = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
 const FILE = path.join(process.cwd(), "data", "subscribers.json");
 
 async function kv(command: unknown[]) {
