@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Zap } from "lucide-react";
 import { ThemeToggle } from "./theme-toggle";
@@ -20,6 +20,20 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const logoClicks = useRef({ count: 0, at: 0 });
+
+  // 3 quick clicks on the logo opens the admin login.
+  const handleLogoClick = (e: React.MouseEvent) => {
+    const now = Date.now();
+    const c = now - logoClicks.current.at < 600 ? logoClicks.current.count + 1 : 1;
+    logoClicks.current = { count: c, at: now };
+    if (c >= 3) {
+      e.preventDefault();
+      logoClicks.current.count = 0;
+      router.push("/admin");
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
@@ -44,7 +58,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
               <div className="w-8 h-8 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 flex items-center justify-center group-hover:bg-[#00d4ff]/20 group-hover:border-[#00d4ff]/60 transition-all duration-200">
                 <Zap className="w-4 h-4 text-[#00d4ff]" />
               </div>

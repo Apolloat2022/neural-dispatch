@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { addSubscriber } from "@/lib/subscribers";
 
 export async function POST(request: Request) {
   // Parse body — return 400 on any parse error, never 500
@@ -16,6 +17,12 @@ export async function POST(request: Request) {
 
   // Always log — visible in Vercel function logs even without Resend
   console.log(`[subscribe] New subscriber: ${email}`);
+
+  try {
+    await addSubscriber(email);
+  } catch (err) {
+    console.error("[subscribe] store failed:", err);
+  }
 
   const apiKey = process.env.RESEND_API_KEY;
   const notifyEmail = process.env.NOTIFY_EMAIL;
