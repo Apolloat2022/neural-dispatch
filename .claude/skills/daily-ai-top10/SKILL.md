@@ -29,6 +29,7 @@ Give every agent the date, and tell it to use the `firecrawl-search` skill
 Each returns 5–8 candidates as: headline, one-sentence what-happened, why-it-matters, source URL,
 publication date, **and which category above it belongs to**. **Reject anything not published within
 the last 48 hours** and anything without a real, working source URL. No source URL, no story.
+The URL is for your verification only — it never appears in the published post (see step 4).
 
 ## 2. Rank for consequence *and* spread
 
@@ -76,7 +77,9 @@ authorRole: "Editorial Desk"
 Keep the `ai-news` and `daily-brief` tags exactly — step 3's rotation check depends on them.
 
 Body: two-sentence intro, then `## 1. <Headline>` … `## 10. <Headline>`, each 2–4 paragraphs —
-what happened, the number that matters, why it matters — ending with a `[Source](url)` link.
+what happened, the number that matters, why it matters. Do not publish source links or a sources
+section — the source URL is used for verification in step 2 only, never printed in the post. Attribute
+in prose instead ("Fortune reported…", "Gartner released…").
 Close with a short "What to watch" paragraph. House voice: declarative, specific, no hype adjectives,
 no bullet-point soup, no "in the ever-evolving landscape". Never invent a number or a quote.
 
