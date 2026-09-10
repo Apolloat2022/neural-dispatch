@@ -7,18 +7,22 @@ Status as of September 9, 2026.
 The task `Neural Dispatch Daily AI Top 10` is registered but its action is malformed. It was
 created from an elevated prompt, so this session gets `Access is denied` trying to change it.
 
-The argument came out as `/c \"C:\Projects\...\daily-dispatch.cmd\"` — the `\"` was escaping
-meant for a `! powershell -Command "..."` wrapper, and running the command directly baked the
+The argument came out as `/c \"<repo>\scripts\daily-dispatch.cmd\"` — the `\"` was escaping meant
+for a `! powershell -Command "..."` wrapper, and running the command directly baked the
 backslashes in literally. cmd.exe cannot resolve that path, so **the task fails immediately and
 publishes nothing.**
 
-Run in the **same elevated PowerShell window**:
+Open an **elevated PowerShell**, `cd` to this repo, then run:
 
 ```powershell
-$r = 'C:\Projects\APOLLO TECHNOLOGIES US\CHIEF REVENUE OFFICER (CRO)_AGENT\outreach_staging\outreach_staging\neural-dispatch'
+$r = $PWD.Path
 Set-ScheduledTask -TaskName 'Neural Dispatch Daily AI Top 10' -Action (New-ScheduledTaskAction -Execute "$r\scripts\daily-dispatch.cmd" -WorkingDirectory $r)
 Disable-ScheduledTask -TaskName 'Neural Dispatch Daily AI Top 10'
 ```
+
+A scheduled task needs a fully-qualified path, so `$PWD` supplies it at run time rather than this
+file hardcoding it. Confirm you are in the right directory first — `Test-Path .\scripts\daily-dispatch.cmd`
+should return `True`.
 
 This points the task straight at the `.cmd` (no `cmd.exe /c`, nothing to quote wrong) and
 disables it until tomorrow, so a catch-up run does not publish a second September 9 post.

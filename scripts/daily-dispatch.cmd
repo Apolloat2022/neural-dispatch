@@ -2,10 +2,15 @@
 REM Daily Neural Dispatch top-10 AI news run. Invoked by the "Neural Dispatch Daily AI Top 10"
 REM Windows scheduled task; run it by hand to test. Logs to logs\daily-dispatch-<date>.log.
 
-set REPO=C:\Projects\APOLLO TECHNOLOGIES US\CHIEF REVENUE OFFICER (CRO)_AGENT\outreach_staging\outreach_staging\neural-dispatch
-set CLAUDE=C:\Users\Apollo Technologies\AppData\Roaming\npm\claude.cmd
+REM Repo is this script's parent dir, so the task works wherever the checkout lives.
+set REPO=%~dp0..
+set CLAUDE=%APPDATA%\npm\claude.cmd
 
 cd /d "%REPO%" || exit /b 1
+if not exist "%CLAUDE%" (
+  echo Cannot find claude at "%CLAUDE%" — set CLAUDE to its path.
+  exit /b 1
+)
 if not exist "logs" mkdir "logs"
 
 for /f "tokens=2 delims==" %%d in ('wmic os get localdatetime /value 2^>nul ^| find "="') do set DT=%%d
