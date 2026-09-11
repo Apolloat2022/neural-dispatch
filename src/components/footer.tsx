@@ -54,8 +54,10 @@ export function Footer() {
               >
                 <Github className="w-4 h-4" />
               </a>
+              {/* Route handler, not a page — a plain <a> needs the basePath spelled out,
+                  since only next/link adds it. Keep in sync with next.config.mjs. */}
               <a
-                href="/rss.xml"
+                href="/neural-dispatch/rss.xml"
                 className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
                 aria-label="RSS Feed"
               >

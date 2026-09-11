@@ -27,6 +27,13 @@ export const metadata: Metadata = {
     "The frontline report on AI tools, breakthroughs, and what's actually being built. Premium tech journalism at the intersection of AI and engineering.",
   keywords: ["AI", "artificial intelligence", "machine learning", "LLMs", "tech", "engineering", "tools"],
   authors: [{ name: "The Neural Dispatch" }],
+  alternates: {
+    types: {
+      "application/rss+xml": [
+        { url: "/rss.xml", title: "The Neural Dispatch" },
+      ],
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
