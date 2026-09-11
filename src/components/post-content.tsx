@@ -38,7 +38,7 @@ export function PostContent({ post, related, children }: PostContentProps) {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-10">
         <Link
           href="/"
-          className="inline-flex items-center gap-2 text-sm text-foreground/50 hover:text-foreground transition-colors"
+          className="inline-flex items-center gap-2 py-3 -my-3 pr-3 text-sm text-foreground/50 hover:text-foreground transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           Back to all posts
@@ -98,7 +98,7 @@ export function PostContent({ post, related, children }: PostContentProps) {
                 href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(frontmatter.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
+                className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
                 aria-label="Share on Twitter"
               >
                 <Twitter className="w-3.5 h-3.5" />
@@ -107,14 +107,14 @@ export function PostContent({ post, related, children }: PostContentProps) {
                 href={`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(shareUrl)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
+                className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
                 aria-label="Share on LinkedIn"
               >
                 <Linkedin className="w-3.5 h-3.5" />
               </a>
               <button
                 onClick={copyLink}
-                className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
+                className="w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-foreground/50 hover:text-foreground hover:bg-white/10 transition-all"
                 aria-label="Copy link"
               >
                 <Link2 className="w-3.5 h-3.5" />

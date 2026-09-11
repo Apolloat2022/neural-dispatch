@@ -244,6 +244,12 @@
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+  /* Guard rail: a single oversized decorative element must never widen the
+     document — that makes mobile browsers zoom out to fit and shrinks every
+     tap target. `clip` instead of `hidden` so it can't become a scroll box. */
+  overflow-x: clip;
+  /* Anchor targets (#featured, #newsletter) clear the fixed 4rem header. */
+  scroll-padding-top: 5rem;
 }
 
 /* Custom keyframes */

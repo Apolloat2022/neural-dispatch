@@ -58,7 +58,7 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 group">
+            <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 py-3 -my-3 pr-2 group">
               <div className="w-8 h-8 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 flex items-center justify-center group-hover:bg-[#00d4ff]/20 group-hover:border-[#00d4ff]/60 transition-all duration-200">
                 <Zap className="w-4 h-4 text-[#00d4ff]" />
               </div>
@@ -99,7 +99,7 @@ export function Navbar() {
               {/* Mobile menu button */}
               <button
                 onClick={() => setMobileOpen(!mobileOpen)}
-                className="md:hidden p-2 rounded-lg text-foreground/70 hover:text-foreground hover:bg-white/5 transition-colors"
+                className="md:hidden w-11 h-11 flex items-center justify-center rounded-lg text-foreground/70 hover:text-foreground hover:bg-white/5 transition-colors"
                 aria-label="Toggle menu"
               >
                 {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

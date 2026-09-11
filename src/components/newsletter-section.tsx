@@ -34,7 +34,10 @@ export function NewsletterSection() {
   };
 
   return (
-    <section id="newsletter" className="py-24 relative">
+    // overflow-hidden: the decorative 800px divider below is wider than a phone
+    // viewport, and without clipping it stretches the whole document, which makes
+    // mobile browsers shrink-to-fit and shrinks every tap target with it.
+    <section id="newsletter" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-px bg-gradient-to-r from-transparent via-[#00d4ff]/20 to-transparent" />
         <div className="absolute inset-0 mesh-gradient opacity-30" />

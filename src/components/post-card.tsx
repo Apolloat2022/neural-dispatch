@@ -76,7 +76,7 @@ export function PostCard({ post, className, featured = false, index = 0 }: PostC
               {frontmatter.tags.slice(0, 4).map((tag) => (
                 <span key={tag} className="text-xs text-foreground/40 font-mono hover:text-[#00d4ff]/70 transition-colors cursor-default">#{tag}</span>
               ))}
-              <Link href={`/posts/${slug}`} className="ml-auto flex items-center gap-2 text-[#00d4ff] text-sm font-medium hover:gap-3 transition-all duration-200">
+              <Link href={`/posts/${slug}`} className="ml-auto flex items-center gap-2 py-3 -my-3 pl-4 text-[#00d4ff] text-sm font-medium hover:gap-3 transition-all duration-200">
                 Read full story <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
@@ -109,7 +109,8 @@ export function PostCard({ post, className, featured = false, index = 0 }: PostC
               {frontmatter.readTime}
             </span>
           </div>
-          <Link href={`/posts/${slug}`} className="block group/title mb-3">
+          {/* -mt/py pair keeps the 12px gap below while giving a single-line title a 44px target */}
+          <Link href={`/posts/${slug}`} className="block group/title -mt-2.5 py-2.5 mb-0.5">
             <h3 className="font-heading font-bold text-lg leading-snug text-foreground group-hover/title:text-[#00d4ff] transition-colors duration-200 line-clamp-2">
               {frontmatter.title}
             </h3>
@@ -120,7 +121,8 @@ export function PostCard({ post, className, featured = false, index = 0 }: PostC
               <Calendar className="w-3 h-3" />
               {formatDate(frontmatter.date)}
             </span>
-            <Link href={`/posts/${slug}`} className="flex items-center gap-1.5 text-[#00d4ff]/80 text-xs font-medium hover:text-[#00d4ff] hover:gap-2.5 transition-all duration-200">
+            {/* py/-my pair: a 44px touch target without changing the laid-out height */}
+            <Link href={`/posts/${slug}`} className="flex items-center gap-1.5 py-3.5 -my-3.5 pl-4 -mr-1 pr-1 text-[#00d4ff]/80 text-xs font-medium hover:text-[#00d4ff] hover:gap-2.5 transition-all duration-200">
               Read more <ArrowRight className="w-3 h-3" />
             </Link>
           </div>
