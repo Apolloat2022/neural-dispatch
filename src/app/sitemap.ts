@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/posts";
+import { CATEGORIES } from "@/lib/categories";
 
 const BASE_URL = "https://apollotechnologiesus.com/neural-dispatch";
 
@@ -11,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(post.frontmatter.date),
     changeFrequency: "monthly" as const,
     priority: post.frontmatter.featured ? 0.9 : 0.7,
+  }));
+
+  const categoryUrls = CATEGORIES.map((c) => ({
+    url: `${BASE_URL}/category/${c.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "weekly" as const,
+    priority: 0.8,
   }));
 
   return [
@@ -26,30 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly",
       priority: 0.5,
     },
-    {
-      url: `${BASE_URL}/category/tools`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/category/research`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/category/use-cases`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
-    {
-      url: `${BASE_URL}/category/industry`,
-      lastModified: new Date(),
-      changeFrequency: "weekly",
-      priority: 0.8,
-    },
+    ...categoryUrls,
     ...postUrls,
   ];
 }

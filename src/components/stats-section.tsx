@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { TrendingUp, FileText, Users, Zap } from "lucide-react";
+import { CATEGORIES } from "@/lib/categories";
 
 const stats = [
   { icon: FileText, value: 24, suffix: "+", label: "Dispatches Published", description: "Deep-dive analyses on AI tools, research, and industry shifts" },
   { icon: Users, value: 5, suffix: "K+", label: "Readers Monthly", description: "Engineers, founders, and AI builders trust our weekly briefings" },
-  { icon: TrendingUp, value: 4, suffix: "", label: "Core Verticals", description: "Tools, Research, Use Cases, and Industry coverage areas" },
+  { icon: TrendingUp, value: CATEGORIES.length, suffix: "", label: "Core Verticals", description: "From tools and research to enterprise rollouts, policy, and the future of work" },
   { icon: Zap, value: 98, suffix: "%", label: "Signal, No Noise", description: "Every dispatch is filtered for substance over hype" },
 ];
 

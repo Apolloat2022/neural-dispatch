@@ -1,12 +1,7 @@
 import { cn } from "@/lib/utils";
+import { categorySlug, getCategory } from "@/lib/categories";
 
-const categoryColors: Record<string, string> = {
-  tools: "bg-violet-500/15 text-violet-300 border-violet-500/30",
-  research: "bg-blue-500/15 text-blue-300 border-blue-500/30",
-  "use cases": "bg-emerald-500/15 text-emerald-300 border-emerald-500/30",
-  industry: "bg-amber-500/15 text-amber-300 border-amber-500/30",
-  default: "bg-[#00d4ff]/10 text-[#00d4ff] border-[#00d4ff]/30",
-};
+const DEFAULT_BADGE = "bg-[#00d4ff]/10 text-[#00d4ff] border-[#00d4ff]/30";
 
 interface CategoryBadgeProps {
   category: string;
@@ -16,7 +11,7 @@ interface CategoryBadgeProps {
 
 export function CategoryBadge({ category, className, size = "md" }: CategoryBadgeProps) {
   const colorClass =
-    categoryColors[category.toLowerCase()] ?? categoryColors.default;
+    getCategory(categorySlug(category))?.badgeClass ?? DEFAULT_BADGE;
 
   return (
     <span

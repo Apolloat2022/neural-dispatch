@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { Zap, Twitter, Github, Rss } from "lucide-react";
+import { CATEGORIES } from "@/lib/categories";
 
 const footerLinks = {
-  Topics: [
-    { href: "/category/tools", label: "AI Tools" },
-    { href: "/category/research", label: "Research" },
-    { href: "/category/use-cases", label: "Use Cases" },
-    { href: "/category/industry", label: "Industry" },
-  ],
+  Topics: CATEGORIES.map((c) => ({
+    href: `/category/${c.slug}`,
+    label: c.label,
+  })),
   Company: [
     { href: "/about", label: "About" },
     { href: "/newsletter", label: "Newsletter" },
