@@ -18,7 +18,7 @@ export default function HomePage() {
     <>
       <Hero />
       <TopicsShowcase counts={categoryCounts} />
-      <StatsSection />
+      <StatsSection postCount={allPosts.length} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         {featuredPost && (
           <section id="featured" className="mb-20">

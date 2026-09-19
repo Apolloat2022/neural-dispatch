@@ -5,8 +5,10 @@ import { motion, useInView } from "framer-motion";
 import { TrendingUp, FileText, Users, Zap } from "lucide-react";
 import { CATEGORIES } from "@/lib/categories";
 
-const stats = [
-  { icon: FileText, value: 24, suffix: "+", label: "Dispatches Published", description: "Deep-dive analyses on AI tools, research, and industry shifts" },
+// postCount is the live number of published posts, passed in from the server
+// page — the exact figure, so it carries no "+" suffix.
+const buildStats = (postCount: number) => [
+  { icon: FileText, value: postCount, suffix: "", label: "Dispatches Published", description: "Deep-dive analyses on AI tools, research, and industry shifts" },
   { icon: Users, value: 5, suffix: "K+", label: "Readers Monthly", description: "Engineers, founders, and AI builders trust our weekly briefings" },
   { icon: TrendingUp, value: CATEGORIES.length, suffix: "", label: "Core Verticals", description: "From tools and research to enterprise rollouts, policy, and the future of work" },
   { icon: Zap, value: 98, suffix: "%", label: "Signal, No Noise", description: "Every dispatch is filtered for substance over hype" },
@@ -43,7 +45,14 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   return <span ref={ref} className="counter-value">{count}{suffix}</span>;
 }
 
-export function StatsSection() {
+interface StatsSectionProps {
+  /** Live published-post count, from getAllPosts().length. */
+  postCount: number;
+}
+
+export function StatsSection({ postCount }: StatsSectionProps) {
+  const stats = buildStats(postCount);
+
   return (
     <section className="py-20 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#00d4ff]/[0.02] to-transparent pointer-events-none" />
