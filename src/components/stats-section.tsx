@@ -22,22 +22,41 @@ const trendingTopics = [
 ];
 
 function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
+  // Seeded with the real figure so the server-rendered HTML carries the number
+  // for crawlers and readers without JS. The count-up is an enhancement on top.
+  const [count, setCount] = useState(target);
   const ref = useRef<HTMLSpanElement>(null);
   const inView = useInView(ref, { once: true });
+  const armed = useRef(false);
+
+  // Decided once on mount: only a card that starts off-screen counts up.
+  // Rewinding one that is already visible would flash the wrong number.
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    const rect = el.getBoundingClientRect();
+    const visibleAtLoad = rect.top < window.innerHeight && rect.bottom > 0;
+    if (visibleAtLoad) return;
+
+    armed.current = true;
+    setCount(0);
+  }, []);
 
   useEffect(() => {
-    if (!inView) return;
-    let start = 0;
+    if (!inView || !armed.current) return;
+    armed.current = false;
+
     const duration = 2000;
     const startTime = performance.now();
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
       const eased = 1 - Math.pow(1 - progress, 3);
-      const current = Math.floor(eased * target);
-      setCount(current);
+      setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(animate);
+      else setCount(target);
     };
     requestAnimationFrame(animate);
   }, [inView, target]);
