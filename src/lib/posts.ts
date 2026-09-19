@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { categorySlug } from "@/lib/categories";
 
 const postsDirectory = path.join(process.cwd(), "content/posts");
 
@@ -72,6 +73,20 @@ export function getPostsByCategory(category: string): Post[] {
   return getAllPosts().filter(
     (p) => p.frontmatter.category.toLowerCase() === category.toLowerCase()
   );
+}
+
+/**
+ * Live post count per category slug, e.g. { "enterprise-ai": 1, industry: 13 }.
+ * Server-only (reads the filesystem) — pass the result into client components
+ * rather than hardcoding counts in them.
+ */
+export function getCategoryCounts(): Record<string, number> {
+  const counts: Record<string, number> = {};
+  for (const post of getAllPosts()) {
+    const slug = categorySlug(post.frontmatter.category);
+    counts[slug] = (counts[slug] ?? 0) + 1;
+  }
+  return counts;
 }
 
 export function getRelatedPosts(currentSlug: string, count = 3): Post[] {

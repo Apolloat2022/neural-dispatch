@@ -1,4 +1,4 @@
-﻿import { getAllPosts, getFeaturedPost } from "@/lib/posts";
+﻿import { getAllPosts, getFeaturedPost, getCategoryCounts } from "@/lib/posts";
 import { Hero } from "@/components/hero";
 import { TopicsShowcase } from "@/components/topics-showcase";
 import { StatsSection } from "@/components/stats-section";
@@ -9,6 +9,7 @@ import { SectionHeader } from "@/components/section-header";
 export default function HomePage() {
   const featuredPost = getFeaturedPost();
   const allPosts = getAllPosts();
+  const categoryCounts = getCategoryCounts();
   const regularPosts = allPosts.filter(
     (p) => p.slug !== featuredPost?.slug
   );
@@ -16,7 +17,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
-      <TopicsShowcase />
+      <TopicsShowcase counts={categoryCounts} />
       <StatsSection />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
         {featuredPost && (
