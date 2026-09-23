@@ -9,7 +9,7 @@ import { CATEGORIES } from "@/lib/categories";
 // page — the exact figure, so it carries no "+" suffix.
 const buildStats = (postCount: number) => [
   { icon: FileText, value: postCount, suffix: "", label: "Dispatches Published", description: "Deep-dive analyses on AI tools, research, and industry shifts" },
-  { icon: Users, value: 5, suffix: "K+", label: "Readers Monthly", description: "Engineers, founders, and AI builders trust our weekly briefings" },
+  { icon: Users, value: 5, suffix: "K+", label: "Readers Monthly", description: "Engineers, founders, and AI builders trust our daily briefings" },
   { icon: TrendingUp, value: CATEGORIES.length, suffix: "", label: "Core Verticals", description: "From tools and research to enterprise rollouts, policy, and the future of work" },
   { icon: Zap, value: 98, suffix: "%", label: "Signal, No Noise", description: "Every dispatch is filtered for substance over hype" },
 ];
