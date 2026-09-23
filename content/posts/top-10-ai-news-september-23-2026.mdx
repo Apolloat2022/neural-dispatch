@@ -1,0 +1,95 @@
+---
+title: "Top 10 AI News — September 23, 2026"
+date: "2026-09-23"
+category: "Future of Work"
+excerpt: "Meta's Muse agent knocks 6 percent off Charles Schwab as markets price in the end of customer inertia, the UN Security Council hears from the labs building frontier AI, and Cisco Talos finds malware that lets four language models vote on its next move."
+tags: ["ai-news", "daily-brief", "meta", "united-nations", "cybersecurity", "gallup", "data-centers", "legal-ai"]
+readTime: "9 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+Today's news is mostly about people reacting to AI rather than about new AI. Investors repriced whole industries around one consumer agent, the UN Security Council brought in the labs, and two major polls showed how far apart the US and the rest of the world now are on the technology.
+
+## 1. Meta's Muse agent knocks 6 percent off Charles Schwab
+
+Financial, insurance, and travel stocks fell on Tuesday as investors bet that Meta's Muse agent will wear down the customer inertia those businesses depend on. That inertia is the habit of staying with an overpriced or underperforming provider because switching is a hassle. Charles Schwab closed down about 6 percent, its lowest since early July, CNBC reported. JPMorgan Chase and Wells Fargo each fell more than 3 percent, Morgan Stanley 2.9 percent, and Allstate 5.5 percent.
+
+Muse has recently reached number one on Apple's US App Store. It does more than answer questions: it carries out tasks for the user, and comparison shopping is the obvious one. Brokerages were hit hardest because they depend most on customers leaving their accounts where they are.
+
+This is the second Muse story in two days. Yesterday Amazon started blocking the agent from its store ([covered in yesterday's brief](/posts/top-10-ai-news-september-22-2026)). The market has now reached the same conclusion Amazon did: an agent that switches providers on a customer's behalf threatens any business that earns its margin from people not bothering to leave.
+
+## 2. The UN Security Council gets its briefing from the frontier labs
+
+France, which holds the Security Council presidency this month, convened a high-level briefing on AI and international security today, chaired by Foreign Minister Jean-Noël Barrot. The listed briefers were OpenAI's Sam Altman in person, Anthropic's Dario Amodei remotely, Hugging Face's Clément Delangue, and Yoshua Bengio, co-chair of the UN's scientific panel on AI. China's DeepSeek was invited to brief, and Moonshot AI to make a statement. It is the first time the Council has heard directly from leading US and Chinese developers in the same session.
+
+France's concept note focused on malicious use, model misalignment, and losing control of highly capable systems. According to Reuters, OpenAI said Altman would urge governments to adopt shared benchmarks for measuring model capabilities and the safeguards companies put around them.
+
+Amodei arrives with an argument already on the record. His September 12 essay calling for the industry to slow frontier capability work has since drawn an antitrust suit, filed in federal court in Northern California, alleging that Anthropic, OpenAI, SpaceXAI, and Google coordinated illegally on the slowdown. A briefing will not bind anyone. What matters is who ends up setting the benchmarks Altman is proposing.
+
+## 3. Cisco Talos finds malware run by four language models
+
+Cisco Talos disclosed CLOSEDQUORUM, which it calls the first reported autonomous AI command-and-control implant. The 16.4 MB Go binary sends its situation to four models — DeepSeek, Qwen, Mistral, and Google Gemini — and does whatever the majority votes for. Once it is deployed, no human operator needs to be online to run the campaign.
+
+Talos says there is no confirmed evidence yet that CLOSEDQUORUM has been used in the wild, and artifacts in the binary tie its developer to postings on carding forums dating to 2025. Alongside the disclosure, Talos released CAIRN, an MIT-licensed toolkit that hunts for AI-integrated malware by scanning binaries for prompt templates, API endpoints, and jailbreak strings without executing them.
+
+The notable part is the design. Asking several models and taking the majority answer is a standard reliability technique in legitimate agent engineering. Here it is being used to make an attack keep running without a human. The defensive questions we raised in [the agentic paradox](/posts/agentic-paradox-securing-ai-agents-2026) now apply to the attacker's side too.
+
+## 4. Gallup: the world feels good about AI, the US does not
+
+A Gallup survey of 37 countries, with about 1,000 people in each, found that positive feelings about AI outweigh negative ones in 34 of them. The United States is one of the three exceptions, along with Egypt and the Palestinian territories. Among adults familiar with AI, 93 percent in China think it will help people. In the US the figure is 36 percent.
+
+The survey also measures use, not just attitudes. Median awareness of AI across the countries is 81 percent, but only 43 percent have ever used it, and concern was highest in wealthy Western countries where use is heaviest.
+
+That last finding matters for anyone building products. The pessimism does not come from people who have never tried AI. It is concentrated in the markets where AI is most used and most visible, which suggests experience is producing doubt rather than dispelling it.
+
+## 5. Pew: Americans are turning against data centers
+
+Pew Research found that 54 percent of Americans now say data centers are mostly bad for the environment, up from 39 percent in January. Half say they are mostly bad for home energy costs, up from 38 percent. Sixty percent say they would be uncomfortable with a new data center in their area. The survey was fielded from July 20 to August 9.
+
+That is a large shift in seven months for infrastructure most people had not thought about a year ago. Pew also found that people who have heard more about data centers view them more negatively.
+
+The political response is already arriving. California signed seven data-center laws this week making operators pay for their own grid and water upgrades. A 15-point move in public opinion is the kind of number that gets the same bills written elsewhere.
+
+## 6. China overtakes the US as the top destination for elite AI talent
+
+A Carnegie China study, reported by The Information, found that China passed the United States as the top destination for elite AI researchers in 2025. China's share rose from 27.1 percent in 2022 to 40.6 percent, and the US share fell from 46.4 percent to 34.2 percent.
+
+This reverses the long-standing pattern in which the best Chinese-trained researchers came to American labs and stayed. It comes the same week Alibaba unveiled new AI chips and Xiaomi released the top-ranked open-weights model.
+
+For US labs the implication is practical. The researchers they have long relied on hiring now have competitive options at home, and the US lead in frontier AI rests partly on keeping them.
+
+## 7. AI agents help crack a problem open since the 1980s
+
+A six-person team led by Rachel Pries of Colorado State, including MIT's Bjorn Poonen, used AI agents to find a degree-23 polynomial whose symmetries form the Mathieu group M23, Scientific American reported. M23 was the last of the 26 sporadic groups for which no such polynomial was known. Mathematicians found the other 25 in the 1980s.
+
+The agents searched for geometric surfaces with the right symmetry, which the team then converted into equations. Caltech PhD student Shaowu Zhang identified a coordinate problem that had stalled earlier attempts; given fresh coordinates, an agent found the surface that worked. "That wasn't really possible five years ago," said team member Kyu-Hwan Lee of the University of Connecticut.
+
+The credit is shared, and the mathematicians were careful to say so. The human insight about coordinates was what unlocked the result, and the agents did the large search that no one would have attempted by hand. That division of labor is closer to how most teams will actually use AI than the fully autonomous version.
+
+## 8. Tekever raises $580 million for AI drones
+
+Portuguese-British drone maker Tekever announced the first close of a $580 million Series D at a $6.4 billion valuation, led by UC Investments, the University of California's investment arm, and Baillie Gifford. It is UC Investments' first direct investment in Europe.
+
+The round follows the UK Ministry of Defence's selection of Tekever for CORVUS, the British Army's new surveillance system, in a program worth up to £400 million over ten years. Tekever says its drones have logged more than 50,000 flight hours in Ukraine since 2022.
+
+Defense is now one of the clearest paying markets for AI autonomy, and European investors are funding it at scale. A US public university's endowment leading the round shows how mainstream the category has become.
+
+## 9. Legora seeks $300 million at an $8.5 billion valuation
+
+Legal AI company Legora is in talks to raise at least $300 million at a pre-money valuation of about $8.5 billion, Bloomberg reported. It was valued at $5.6 billion five months ago. Its CFO said annual recurring revenue has reached $200 million, doubling in under six months.
+
+Contract review and legal research have become one of the first places where AI revenue grows as fast as AI valuations. We looked at how that market was forming in [the AI legal revolution at law firms](/posts/harvey-ironclad-ai-legal-revolution-law-firms). Legora's numbers suggest the category is now large enough for more than one company to win.
+
+## 10. Ema raises $77 million for "AI employees"
+
+Ema raised a $77 million Series B led by Creaegis, with Accel, S32, and Prosus increasing their stakes. The round brings its total funding to $140 million and more than quadruples its valuation. Its product coordinates several AI agents to carry out multi-step HR, IT, and finance processes inside a company's existing software.
+
+Ema says it has more than 50 enterprise customers, including Google, Microsoft, PwC, and KPMG, and more than 1 million active users, and claims 50-fold revenue growth over two years with gross margins around 80 percent. Those figures are the company's own.
+
+"AI employees" is a marketing term, but the underlying product — agents that run whole back-office processes rather than answer questions — is where enterprise budgets are going. It is the same pattern as [McKinsey's 20,000-agent workforce](/posts/mckinsey-20000-ai-agents-digital-workforce), now offered as a product to other companies.
+
+## What to watch
+
+The UK's Competition and Markets Authority proposed today that Google include AI assistants such as ChatGPT and Perplexity on Android and Chrome choice screens, and ask users every year to confirm their default. Comments are due October 9, with a final decision by year end. If it holds, it would be the first rule requiring a platform to offer rival AI assistants the way it offers rival search engines. Also watch Schwab and the brokerages: if the Muse sell-off holds through the week, expect other companies whose customers rarely switch to start explaining to investors what agents mean for their business.
