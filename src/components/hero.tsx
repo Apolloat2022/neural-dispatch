@@ -4,17 +4,13 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown, Radio, ChevronRight } from "lucide-react";
 import Link from "next/link";
+import { categorySlug, getCategory } from "@/lib/categories";
 
-const dispatchLines = [
-  { prefix: "dispatch", text: " Claude Sonnet 5 commoditizes cheap agents — $1 tasks become $0.01", tag: "tools" },
-  { prefix: "dispatch", text: " NVIDIA GTC Taipei: Agents everywhere, chips fracturing the market", tag: "industry" },
-  { prefix: "dispatch", text: " McKinsey deploys 20,000 AI agents as digital workforce", tag: "industry" },
-  { prefix: "dispatch", text: " OpenAI Operator enters enterprise agentic workflows", tag: "tools" },
-  { prefix: "dispatch", text: " MCP protocol becomes the standard for AI agent interop", tag: "research" },
-  { prefix: "dispatch", text: " Salesforce Agentforce hits $800M ARR — proof of agentic commerce", tag: "industry" },
-  { prefix: "dispatch", text: " Google AI-assisted engineering interviews reshape hiring 2026", tag: "research" },
-  { prefix: "dispatch", text: " Vibe coding: Non-developers shipping production software", tag: "use-cases" },
-];
+/** Latest posts, newest first — passed in from the server so the feed tracks content/posts. */
+export interface FeedItem {
+  title: string;
+  category: string;
+}
 
 function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -88,20 +84,21 @@ function ParticleCanvas() {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" style={{ opacity: 0.6 }} />;
 }
 
-function TerminalPreview() {
+function TerminalPreview({ lines }: { lines: FeedItem[] }) {
   const [visibleLines, setVisibleLines] = useState<number>(0);
   const [activeLine, setActiveLine] = useState<number>(0);
   useEffect(() => {
+    if (lines.length === 0) return;
     const lineInterval = setInterval(() => {
       setVisibleLines((prev) => {
         const next = prev + 1;
-        if (next > dispatchLines.length) return 0;
+        if (next > lines.length) return 0;
         return next;
       });
-      setActiveLine((prev) => (prev + 1) % dispatchLines.length);
+      setActiveLine((prev) => (prev + 1) % lines.length);
     }, 2500);
     return () => clearInterval(lineInterval);
-  }, []);
+  }, [lines.length]);
 
   return (
     <motion.div
@@ -124,23 +121,20 @@ function TerminalPreview() {
         </div>
         <div className="terminal-body h-[180px] overflow-hidden relative">
           <div className="space-y-1.5">
-            {dispatchLines.slice(0, visibleLines).map((line, i) => (
+            {lines.slice(0, visibleLines).map((line, i) => (
               <motion.div
-                key={`${i}-${line.text.slice(0, 20)}`}
+                key={`${i}-${line.title.slice(0, 20)}`}
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: i === activeLine ? 1 : 0.5, x: 0 }}
                 transition={{ duration: 0.3 }}
                 className={`flex items-start gap-1 transition-opacity duration-500 ${i === activeLine ? "text-white/90" : ""}`}
               >
                 <span className="terminal-prompt shrink-0">{"❯ "}</span>
-                <span className="text-foreground/30 shrink-0">{line.prefix}:</span>
-                <span className="flex-1">{line.text}</span>
+                <span className="text-foreground/30 shrink-0">dispatch:</span>
+                <span className="flex-1"> {line.title}</span>
                 <span className={`shrink-0 text-[10px] px-1.5 py-0.5 rounded font-mono ${
-                  line.tag === "tools" ? "bg-violet-500/20 text-violet-300"
-                  : line.tag === "research" ? "bg-blue-500/20 text-blue-300"
-                  : line.tag === "industry" ? "bg-amber-500/20 text-amber-300"
-                  : "bg-emerald-500/20 text-emerald-300"
-                }`}>{line.tag}</span>
+                  getCategory(categorySlug(line.category))?.badgeClass ?? "bg-emerald-500/20 text-emerald-300"
+                }`}>{categorySlug(line.category)}</span>
               </motion.div>
             ))}
             {visibleLines > 0 && (
@@ -157,7 +151,7 @@ function TerminalPreview() {
   );
 }
 
-export function Hero() {
+export function Hero({ feed }: { feed: FeedItem[] }) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
@@ -185,7 +179,7 @@ export function Hero() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00d4ff] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00d4ff]" />
               </span>
-              AI Intelligence · Updated Weekly
+              AI Intelligence · Updated Daily
             </motion.div>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -231,7 +225,7 @@ export function Hero() {
               className="flex items-center justify-center lg:justify-start gap-10 mt-14"
             >
               {[
-                { value: "Weekly", label: "Updates", color: "" },
+                { value: "Daily", label: "Updates", color: "" },
                 { value: "In-depth", label: "Analysis", color: "" },
                 { value: "Zero", label: "Hype", color: "text-[#00d4ff]/60" },
               ].map((stat) => (
@@ -243,7 +237,7 @@ export function Hero() {
             </motion.div>
           </div>
           <div className="flex-1 w-full max-w-2xl">
-            <TerminalPreview />
+            <TerminalPreview lines={feed} />
           </div>
         </div>
       </motion.div>

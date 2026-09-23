@@ -16,7 +16,12 @@ export default function HomePage() {
 
   return (
     <>
-      <Hero />
+      <Hero
+        feed={allPosts.slice(0, 8).map((p) => ({
+          title: p.frontmatter.title,
+          category: p.frontmatter.category,
+        }))}
+      />
       <TopicsShowcase counts={categoryCounts} />
       <StatsSection postCount={allPosts.length} />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-8">
