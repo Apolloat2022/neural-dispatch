@@ -1,0 +1,95 @@
+---
+title: "Top 10 AI News — September 22, 2026"
+date: "2026-09-22"
+category: "Technology"
+excerpt: "Anthropic and OpenAI ship new frontier models ninety minutes apart and both cut prices, California makes data centers pay for their own grid upgrades, and Amazon blocks Meta's Muse shopping agent."
+tags: ["ai-news", "daily-brief", "anthropic", "openai", "meta", "amd", "data-centers", "california", "labor-market"]
+readTime: "9 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+The two biggest labs shipped new models within ninety minutes of each other today, and both led with price. Underneath the launches, the fights that decide who pays for AI — ratepayers, retailers, new graduates — got more concrete.
+
+## 1. Anthropic ships Claude Opus 5.5 and cuts the price
+
+Anthropic released Claude Opus 5.5 across its API, Claude Code, the Claude apps, Amazon Bedrock, Google Vertex AI, and Microsoft Foundry on the same day. List pricing drops to $4 per million input tokens and $20 per million output, down from $5 and $25 for Opus 5. Anthropic says the model costs about 40 percent less to run on typical workloads and generates output more than 30 percent faster.
+
+The benchmark that matters for the people paying is agentic coding. Anthropic reports 66.4 percent on Terminal-Bench 4.0, against 52.3 percent for Opus 5 and 55.8 percent for its own flagship Fable 5.1, plus 81.8 percent on OSWorld 2.0 for computer use. Artificial Analysis, testing independently, put Opus 5.5 at the top of its Intelligence Index with a score of 58, leading six of its ten evaluations. The catch in that report is verbosity: at maximum effort the model used roughly 119,000 output tokens per task.
+
+GitHub made it available in Copilot the same day, noting it resolved tasks comparably to Opus 5 "while using significantly fewer steps and tokens." A mid-cycle model beating the company's own top tier on coding, at a lower price, is the pattern we described when [cheap capable models started commoditizing agents](/posts/claude-sonnet-5-cheap-agents-commoditization).
+
+## 2. OpenAI answers with GPT-6 Sol and Luna at half the price
+
+About ninety minutes later, OpenAI launched GPT-6 Sol, for complex coding and agent work, and GPT-6 Luna, for high-volume tasks, in ChatGPT, Codex, and the API. TechCrunch reported the new series costs half as much as GPT-5.6, and that OpenAI's own factuality testing found Sol makes about half as many mistakes as its predecessor.
+
+Independent numbers are more modest. Artificial Analysis testing, reported by OfficeChai, scored Sol at 48 on its index against 47 for the model it replaces, with Luna flat at 37. Sol's hallucination rate fell from 92 percent to 60 percent, partly because it declines to answer more often.
+
+Read together, the two launches say the frontier race this quarter is being fought on cost per task rather than raw capability. GitHub added both GPT-6 models to Copilot the same day, a day after adding xAI's Grok 4.7, which turns the IDE into a broker that routes between three labs' newest models within hours of release.
+
+## 3. California makes data centers pay their own grid costs
+
+Governor Newsom signed seven data-center bills on September 21. Operators must now disclose water and energy use and pay for the grid and water upgrades their facilities require, rather than passing them to household ratepayers. SB 887 also strips data centers of their blanket exemptions from CEQA, the state's environmental review law.
+
+It is the broadest state package yet on who carries the infrastructure bill for AI compute, and it lands in the largest tech economy in the country. Developers now face longer permitting and a direct line item for grid capacity in California specifically.
+
+The pressure is not local. In the UK, OpenAI's George Osborne, who leads the company's work with national governments, told The Guardian that opponents of new data centers risk handing tech "sovereignty" to the US, as protests have spread from London to Devon and Edinburgh. Where capacity can physically be built is becoming as contested as the chips that go inside it.
+
+## 4. Census data: AI-exposed majors are graduating into a recession
+
+A US Census Bureau working paper, covered by Inside Higher Ed, finds that graduates in the majors most exposed to AI saw initial employment fall by 5 percentage points and starting earnings fall by 13 percent after ChatGPT arrived in late 2022. Computer science, accounting, journalism, and engineering were hit hardest. Nursing and education were hit least.
+
+This is federal microdata rather than a vendor survey, and the authors compare the earnings hit to graduating into a large recession. About half of the loss comes from graduates shifting into retail and food-service jobs rather than the roles their degrees pointed to.
+
+The labor-market debate has leaned on anecdotes and executive predictions. This is one of the first government datasets to show a measurable effect at the entry level, concentrated in exactly the fields that sold themselves as safe bets.
+
+## 5. Amazon blocks Meta's Muse shopping agent
+
+Amazon began blocking Meta's Muse AI agent from its retail site on Sunday night, The Register reported. Amazon says Meta never told it the agent would be accessing the store, that the agent does not identify itself, and that it stores customer credentials. Meta says its model never sees passwords or payment methods.
+
+This is the first major standoff between a platform and a third-party shopping agent, and the economics are plain. An agent that buys on a customer's behalf skips the search results and sponsored listings behind Amazon's advertising business, which The Register put at more than $68 billion last year.
+
+Whoever controls the checkout controls the ad revenue, which is why the fight over [who agents are allowed to pay, and how](/posts/agentic-commerce-payment-protocol-wars-2026) was always going to end up at the retailer's front door.
+
+## 6. A zero-day turned Muse on the Mac into a backdoor
+
+The same agent had a separate bad day. Security researcher Patrick Wardle showed that any local process could change a hidden Muse setting and redirect the assistant's voice prompts, along with the account's authentication token, to an attacker's server. 9to5Mac reported that Meta pushed a fix within about 24 hours.
+
+The flaw matters because of what Muse is allowed to reach on the Mac: mail, camera, microphone, and location. An assistant with that access is the valuable target, and a lure that tricks the user into running one command would have been enough.
+
+Agents are being given broad permissions faster than the software around them is being hardened. We looked at that gap in [the agentic paradox](/posts/agentic-paradox-securing-ai-agents-2026). This week it has a case study.
+
+## 7. AMD passes $1 trillion
+
+AMD shares rose about 10 percent on September 21 to an intraday high of $615.52, taking the company's market value past $1 trillion for the first time, CNBC reported. The stock is up more than 180 percent this year. In its second quarter, AMD reported revenue of $11.54 billion, up 50 percent, with data-center sales of $6.7 billion, up 107 percent.
+
+That makes AMD the fourth US chipmaker worth $1 trillion, after Nvidia, Broadcom, and Micron. It is still a fraction of Nvidia's roughly $5.4 trillion.
+
+The market is pricing AI compute as a multi-vendor business rather than a single-company story, a shift we traced in [the fracturing of the AI chip market](/posts/nvidia-ai-chip-market-fracturing-2026).
+
+## 8. Alibaba unveils the Zhenwu V900 chip and a 20-gigawatt plan
+
+At its Apsara Conference, Alibaba unveiled the Zhenwu V900, an AI chip it says delivers three times the performance of its predecessor and calls China's most powerful. The company said it expects more than 20 gigawatts of computing capacity by 2032 and plans models of 5 to 10 trillion parameters. Its current Qwen3.8-Max has 2.4 trillion.
+
+This is an announcement, not a shipped product, and the performance claim is Alibaba's own. But it is the most direct sign yet that China's leading open-model lab intends to scale on its own silicon rather than wait out US export controls.
+
+## 9. Xiaomi's MiMo-V2.6-Pro becomes the top open-weights model
+
+Xiaomi released MiMo-V2.6-Pro, a mixture-of-experts model with 1.02 trillion total and 42 billion active parameters, alongside a smaller Flash variant. Both take text, image, audio, and video input, support a million-token context, and ship under the MIT license. VentureBeat reported that Pro scores 46 on the Artificial Analysis Intelligence Index, tied with xAI's new closed Grok 4.7 and the highest of any open-weights model.
+
+API pricing is $0.435 per million input tokens and $0.87 per million output. That is a small fraction of what closed models at the same score charge.
+
+Against a day of frontier price cuts from the US labs, the open-weights floor also rose. The gap between "best available" and "free to download and modify" is now one closed release cycle.
+
+## 10. Goldman Sachs puts $400 million into Cyera
+
+Goldman Sachs Alternatives invested $400 million in data-security company Cyera at a valuation above $12 billion, SecurityWeek reported, bringing its total funding past $2.7 billion. Cyera says its products are used by 20 percent of the Fortune 500.
+
+The pitch is the governance layer enterprises want in place before they let autonomous agents touch sensitive data. It was one of several such raises today. Outerlimit came out of stealth with $16 million to check agent actions against policy at the moment of each tool call.
+
+Items 5 and 6 are the argument for the category: agents that act on their own need something that decides, per action, what they may do.
+
+## What to watch
+
+SoftBank prices a junk-bond sale of more than $11 billion on September 24 to fund its next $10 billion payment to OpenAI. Tech Startups, citing a Reuters term sheet, reports it would be the largest non-financial corporate bond deal ever from Asia-Pacific and Japan. Watch the pricing: it is a direct read on what debt markets will charge to fund the frontier. And watch whether other retailers follow Amazon in blocking third-party agents or take the other side, which will decide whether agentic commerce runs through open storefronts or walled ones.

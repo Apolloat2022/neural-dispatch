@@ -14,8 +14,12 @@ Date = today unless the user gives one. Use it everywhere: `YYYY-MM-DD` in front
 
 Spawn **6 `general-purpose` agents in one message** (parallel), one beat each. The beats map to the
 site's categories on purpose — the brief must span the whole publication, not just deal news.
-Give every agent the date, and tell it to use the `firecrawl-search` skill
-(`firecrawl search "<query>" --limit 8`) and `firecrawl-scrape` for any story worth quoting:
+Give every agent the date, and tell it to find stories with the built-in `WebSearch` tool, then
+read any story worth quoting with PixelRAG's `pixelshot` (installed globally via `uv tool`; source
+clone at `~/tools/PixelRAG`). No Firecrawl — it needs paid credits:
+`PYTHONUTF8=1 pixelshot <url> --wait-network-idle --extract-text -o "$(mktemp -d)"` — a fresh dir per
+call, since parallel agents sharing one dir read each other's pages — then read `text.md` inside it,
+or Read the tile images when a chart or table matters. Fall back to `WebFetch` if a page fails to render.
 
 | Beat | Covers | Maps to |
 |---|---|---|
@@ -49,7 +53,7 @@ Set frontmatter `category` to the category that most of the day's stories fall u
 category matches any of the last 3 daily briefs, use the runner-up instead.** Check with:
 
 ```
-grep -l '"ai-news"' content/posts/*.mdx | xargs grep -h '^category:' | tail -3
+for f in $(grep -l '"ai-news"' content/posts/*.mdx); do echo "$(grep -h '^date:' $f) $(grep -h '^category:' $f)"; done | sort | tail -3
 ```
 
 The point is that daily briefs accumulate across the category pages instead of piling into Industry.
