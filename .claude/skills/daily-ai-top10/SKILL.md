@@ -16,10 +16,16 @@ Spawn **6 `general-purpose` agents in one message** (parallel), one beat each. T
 site's categories on purpose — the brief must span the whole publication, not just deal news.
 Give every agent the date, and tell it to find stories with the built-in `WebSearch` tool, then
 read any story worth quoting with PixelRAG's `pixelshot` (installed globally via `uv tool`; source
-clone at `~/tools/PixelRAG`). No Firecrawl — it needs paid credits:
-`PYTHONUTF8=1 pixelshot <url> --wait-network-idle --extract-text -o "$(mktemp -d)"` — a fresh dir per
-call, since parallel agents sharing one dir read each other's pages — then read `text.md` inside it,
-or Read the tile images when a chart or table matters. Fall back to `WebFetch` if a page fails to render.
+clone at `~/tools/PixelRAG`). No Firecrawl — it needs paid credits. Run it with the **Bash** tool,
+one URL per call, exactly like this:
+`PYTHONUTF8=1 pixelshot <url> --wait-network-idle --extract-text -o "$(mktemp -d)"`
+- `PYTHONUTF8=1` is required: without it Windows' cp1252 console crashes on any non-Latin character
+  (`UnicodeEncodeError: 'charmap' codec`) and `text.md` comes out empty. In PowerShell the
+  equivalent is `$env:PYTHONUTF8=1; pixelshot ...`.
+- A fresh dir per call — parallel agents sharing one dir read each other's pages.
+
+Then read `text.md` inside it, or Read the tile images when a chart or table matters. An empty
+`text.md` means the render failed — fall back to `WebFetch` for that page.
 
 | Beat | Covers | Maps to |
 |---|---|---|
