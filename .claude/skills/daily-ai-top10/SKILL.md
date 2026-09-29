@@ -1,6 +1,6 @@
 ---
 name: daily-ai-top10
-description: Research the day's top 10 AI news with a research swarm, publish it as a Neural Dispatch MDX post, and push to git. Use when the user says "daily AI news", "top 10 AI news", "run the daily dispatch", or invokes /daily-ai-top10. Takes an optional date (defaults to today).
+description: Research the day's top 10 AI news across six beats, publish it as a Neural Dispatch MDX post, and push to git. Use when the user says "daily AI news", "top 10 AI news", "run the daily dispatch", or invokes /daily-ai-top10. Takes an optional date (defaults to today).
 ---
 
 # Daily Top 10 AI News
@@ -10,19 +10,24 @@ Publishes one post per day to `content/posts/` and pushes to `origin/main` (Verc
 Date = today unless the user gives one. Use it everywhere: `YYYY-MM-DD` in frontmatter,
 `Month D, YYYY` in the title, `top-10-ai-news-<month>-<d>-<yyyy>` as the slug.
 
-## 1. Swarm the research
+## 1. Research inline
 
-Spawn **6 `general-purpose` agents in one message** (parallel), one beat each. The beats map to the
-site's categories on purpose — the brief must span the whole publication, not just deal news.
-Give every agent the date, and tell it to find stories with the built-in `WebSearch` tool, then
-read any story worth quoting with PixelRAG's `pixelshot` (installed globally via `uv tool`; source
-clone at `~/tools/PixelRAG`). No Firecrawl — it needs paid credits. Run it with the **Bash** tool,
-one URL per call, exactly like this:
+Do the research **yourself, in the main session**. Do not spawn subagents: they don't inherit
+web-tool permissions, and the swarm failed silently on Sep 26–28, 2026. Cover every beat in the
+table below; the beats map to the site's categories on purpose, because the brief must span the
+whole publication, not just deal news. Run the `WebSearch` calls for all beats in parallel in one
+message. Weekend digests (e.g. theneuron.ai "Everything that happened in AI this weekend") are a
+fast way to seed candidates, but verify each story and its date separately. Then read any story
+worth quoting with `WebFetch`, or with PixelRAG's `pixelshot` (installed globally via `uv tool`;
+source clone at `~/tools/PixelRAG`) when the page needs JS. No Firecrawl: it needs paid credits.
+Run pixelshot with the **Bash** tool, one URL per call, exactly like this:
 `PYTHONUTF8=1 pixelshot <url> --wait-network-idle --extract-text -o "$(mktemp -d)"`
 - `PYTHONUTF8=1` is required: without it Windows' cp1252 console crashes on any non-Latin character
   (`UnicodeEncodeError: 'charmap' codec`) and `text.md` comes out empty. In PowerShell the
   equivalent is `$env:PYTHONUTF8=1; pixelshot ...`.
-- A fresh dir per call — parallel agents sharing one dir read each other's pages.
+- A fresh dir per call.
+- CNBC and creati.ai return 403 to WebFetch, and pixelshot produced no text for CNBC. Verify those
+  stories through syndicated copies or a search result snippet.
 
 Then read `text.md` inside it, or Read the tile images when a chart or table matters. An empty
 `text.md` means the render failed — fall back to `WebFetch` for that page.
@@ -36,14 +41,14 @@ Then read `text.md` inside it, or Read the tile images when a chart or table mat
 | 5. Infra, policy & security | chips, datacenters, energy, regulation, lawsuits, CVEs, safety incidents | Technology |
 | 6. Work & practice | hiring and job-market data, skills, org change, real deployments with named outcomes, research on how teams actually use AI | Future of Work / Use Cases / Education |
 
-Each returns 5–8 candidates as: headline, one-sentence what-happened, why-it-matters, source URL,
+Collect 5–8 candidates per beat as: headline, one-sentence what-happened, why-it-matters, source URL,
 publication date, **and which category above it belongs to**. **Reject anything not published within
 the last 48 hours** and anything without a real, working source URL. No source URL, no story.
 The URL is for your verification only — it never appears in the published post (see step 4).
 
 ## 2. Rank for consequence *and* spread
 
-Dedupe across agents, then pick 10 ordered by consequence — a shipped thing or a hard number beats
+Dedupe across beats, then pick 10 ordered by consequence — a shipped thing or a hard number beats
 an announcement, an announcement beats a rumor. Then enforce breadth:
 
 - **At most 3 stories from any one category.** A list that is 7 funding rounds is a failure.
