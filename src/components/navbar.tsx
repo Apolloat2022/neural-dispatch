@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import { LogoMark } from "./logo-mark";
+import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -59,14 +59,8 @@ export function Navbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 py-3 -my-3 pr-2 group">
-              <div className="w-8 h-8 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 flex items-center justify-center group-hover:bg-[#00d4ff]/20 group-hover:border-[#00d4ff]/60 transition-all duration-200">
-                <LogoMark className="w-5 h-5 text-[#00d4ff]" />
-              </div>
-              <span className="font-heading font-bold text-lg tracking-tight">
-                <span className="text-foreground">Neural</span>
-                <span className="text-[#00d4ff]">Dispatch</span>
-              </span>
+            <Link href="/" onClick={handleLogoClick} className="flex items-center py-3 -my-3 pr-2">
+              <Logo className="h-12" />
             </Link>
 
             {/* Desktop Nav */}
