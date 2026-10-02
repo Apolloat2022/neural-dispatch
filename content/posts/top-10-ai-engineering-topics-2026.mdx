@@ -1,0 +1,97 @@
+---
+title: "The AI Engineering Stack in 2026: 10 Technical Topics Every Team Needs to Know"
+date: "2026-10-02"
+category: "Tools"
+excerpt: "Vector databases, LangGraph, MCP, observability, evals, durable execution and six more: where each layer of the production AI stack stands in late 2026, and what to pick."
+tags: ["ai-engineering", "vector-database", "langgraph", "langchain", "llm-observability", "evals", "mcp", "durable-execution", "inference"]
+readTime: "11 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+A model call is the easy part. What separates a demo from a production system is the stack around it: where context comes from, how agents keep state, how you see what they did, and how you stop them doing what they shouldn't. Here are the ten technical topics that matter most for teams building with AI right now, with where each one stands as of October 2026.
+
+## 1. Vector databases: Postgres is eating the category
+
+Vector search is now a feature, not a product category. With HNSW indexes, pgvector matches or beats dedicated vector databases at around a million vectors, and that covers most company knowledge bases. Teams have been consolidating: Confident AI moved its production vector store from Pinecone to PostgreSQL, and OpenWebUI switched to pgvector.
+
+Dedicated engines still win at the extremes. Qdrant, written in Rust, raised a $50 million Series B in March and has become a default for high-throughput agent retrieval. Milvus and Vespa handle billion-scale and heavy hybrid workloads. Cost is also forcing changes: Notion cut its search costs by about 60% by moving from Pinecone Serverless to Turbopuffer, which keeps its index in object storage.
+
+**What to pick:** Start with pgvector if you already run Postgres. Move to a dedicated engine when you have a measured reason: tens of millions of vectors, strict latency targets, or heavy filtered search.
+
+## 2. Retrieval: hybrid search plus reranking is the floor
+
+Pure embedding search is no longer the baseline. The 2026 default is hybrid retrieval: BM25 keyword search and dense embeddings, merged with reciprocal rank fusion, followed by a cross-encoder reranker. Published comparisons put the precision gain at 25–40% over naive RAG, for a small increase in latency.
+
+On top of that sits agentic retrieval. Instead of one fixed pipeline, an agent plans a query, checks whether the results are good enough, and searches again if not. The current best practice is "adaptive RAG": a classifier sends simple questions down a cheap path and multi-hop questions to an agent loop or a graph-based retriever (GraphRAG). That way you only pay for graph construction where relationships between entities actually matter.
+
+**What to pick:** Hybrid search and a reranker before anything clever. Add the agent loop only for questions your evals show the simple path gets wrong.
+
+## 3. LangChain and LangGraph: the framework grew up
+
+LangChain and LangGraph both reached 1.0 and have settled into separate jobs. LangChain provides the high-level agent building blocks; LangGraph is the low-level runtime for stateful, graph-shaped agent workflows, with checkpoints, human-in-the-loop interrupts and streaming. LangGraph 1.1 added type-safe streaming and invocation, and Pydantic and dataclass coercion, with full backward compatibility.
+
+The company has also built out the commercial layer. LangSmith now handles tracing, evals with more than 30 evaluator templates, cost alerts and deployment, including a one-command deploy from the LangGraph CLI. Its no-code agent builder was renamed LangSmith Fleet and gained agent identity and permissions. A managed version of its Deep Agents framework and an LLM gateway in beta followed.
+
+**What to pick:** LangGraph when you need explicit control flow, checkpoints and human approval steps. For a single tool-calling loop, the model provider's own SDK is often enough. Add a framework when the workflow outgrows it, not before. Our piece on [why autonomous agents hit a wall](/posts/autonomous-agent-wall-orchestration-guide-2026) covers when orchestration earns its complexity.
+
+## 4. MCP: the integration standard went stateless
+
+The Model Context Protocol has become the standard way to connect agents to tools and data. It moved under the Linux Foundation's Agentic AI Foundation in December 2025. The 2026-07-28 spec revision, finalized on July 28, is the biggest change since launch, and parts of it break backward compatibility. The initialize handshake and the `Mcp-Session-Id` header are gone. Any server instance can answer any request, and clients fetch capabilities on demand through a new `server/discover` method.
+
+That matters for operations: MCP servers can now sit behind an ordinary load balancer and scale like any stateless web service. The foundation also launched a vendor-neutral certification program for MCP implementations in September.
+
+**What to pick:** If you built MCP servers on the older spec, budget time to migrate. Treat every third-party MCP server as untrusted code with access to your data. Our [MCP explainer](/posts/mcp-model-context-protocol-standard-ai-agents-2026) covers the security model.
+
+## 5. Observability: OpenTelemetry won the format war
+
+LLM observability now rests on two open specifications: OpenTelemetry's GenAI semantic conventions and OpenInference, the Apache-licensed convention that came out of Arize. Both define a shared vocabulary for model calls, embeddings, tool calls and agent steps. A span from a LangGraph agent and a span from a raw API call now look the same, which means you can move between backends without re-instrumenting.
+
+The vendor market is consolidating into larger data and monitoring platforms. ClickHouse acquired Langfuse, the most widely used open-source LLM observability tool, alongside its $400 million Series D, and kept the MIT license. Dynatrace agreed to buy Arize for $915 million. LangSmith, Braintrust and Arize Phoenix cover the rest of the field.
+
+**What to pick:** Instrument with OpenTelemetry from day one, whatever backend you choose. Record prompts, tool calls, token counts and cost on every span. Recent agent incidents show that teams who can't reconstruct what an agent did end up spending months finding out.
+
+## 6. Evals: score the trajectory, not just the answer
+
+Most teams still evaluate agents on whether the final answer passes. That misses the failures that matter in production: wrong tool calls, bad arguments, loops, and agents that reach the right answer by an unsafe path. The 2026 practice has three levels. End to end: did the task succeed? Trajectory: was the path efficient and sound? Component: which retriever, tool or sub-agent broke?
+
+The tools have caught up. DeepEval 3.0 scores individual steps, including tool correctness, argument correctness and plan adherence. LangSmith and Braintrust run trajectory evals, and Phoenix ties evals to OpenTelemetry traces. The working pattern is deterministic unit tests, then an LLM-as-judge on a curated dataset, then online evaluation on sampled production traffic.
+
+**What to pick:** Build a dataset of 50–200 real cases before you choose a tool. The dataset matters more than the framework, and it becomes your regression suite for every model upgrade.
+
+## 7. Agent memory and context engineering
+
+Context, not capability, is now the most common reason agents fail: they forget preferences, repeat questions and lose task state partway through. The memory layer has split into two approaches. Mem0 is a passive layer: it extracts facts from each exchange and retrieves them later, on hybrid vector, graph and key-value storage scoped to user, session and agent. Letta, which grew out of MemGPT, is an active runtime in which the agent edits its own memory and decides what to archive. Zep and Cognee compete in the same space.
+
+The newer idea is to treat memory as files. In March Letta shifted its focus to Letta Code, a model-agnostic agent harness that keeps memory in git-backed "context repositories" the agent reads and writes like a codebase. Context engineering, meaning deciding what goes into the window, in what order and when it gets compressed, is now a discipline in its own right.
+
+**What to pick:** Before adding a memory product, make sure your context is clean: short system prompts, tools that load only when needed, and summaries at task boundaries. Add a memory layer when users notice the agent forgetting.
+
+## 8. Durable execution: agents need a real runtime
+
+A long-running agent is a distributed system, and it fails like one: timeouts, crashes, rate limits and deploys in the middle of a task. Durable execution engines record every step as an event history. If step 47 of 100 fails, the workflow resumes at step 48, not step 1, and each LLM or tool call gets retries automatically.
+
+The market has noticed. Temporal raised a $550 million Series E at a $12.55 billion valuation on September 14, 2.5 times its February price, with annualized revenue above $250 million and growing more than 200% a year. Its Replay 2026 launches included Serverless Workers, Standalone Activities and Workflow Streams, and its Google ADK integration runs each LLM and tool call as a retryable activity. Restate, Inngest and Hatchet offer lighter alternatives.
+
+**What to pick:** If an agent runs for more than a few minutes, touches money or calls external systems, put it on a durable runtime. Rebuilding retries and checkpoints yourself is how teams end up with a worse version of one.
+
+## 9. Inference serving: vLLM vs. SGLang
+
+For teams hosting open-weight models, two engines lead. vLLM has the broadest hardware support: NVIDIA, AMD, Intel, TPU and Arm. Its AMD support matured this year, with a dedicated ROCm CI pipeline that took the AMD test pass rate from 37% to 93%. SGLang runs on more than 400,000 production GPUs at companies including xAI, AMD, NVIDIA, LinkedIn and Cursor.
+
+The deciding factor is prompt overlap. SGLang's RadixAttention reuses cached prefixes, which gives it a clear throughput lead on agent and RAG traffic with shared system prompts and multi-turn context. On mostly unique prompts the two are within a few percent of each other. TensorRT-LLM remains the choice for squeezing peak performance out of NVIDIA hardware.
+
+**What to pick:** Benchmark both on your real traffic, not ShareGPT. Agent workloads usually favor SGLang; mixed hardware fleets favor vLLM.
+
+## 10. Gateways, routing and agent sandboxing
+
+Two control layers now sit between your code and the models. The first is an AI gateway. LiteLLM (an open-source proxy) and OpenRouter (hosted, with 400+ models) put many providers behind one OpenAI-compatible API, with fallbacks, load balancing, per-team virtual keys and spend tracking. Routers that send easy requests to cheap models and save frontier models for hard ones are where most of the cost savings now come from.
+
+The second is containment. The OWASP Top 10 for Agentic Applications covers the risks: goal hijacking, tool misuse, privilege abuse, memory poisoning, cascading failures and rogue agents. The recommended controls are concrete: run agent code in ephemeral, network-isolated microVMs or WebAssembly sandboxes, give each tool least privilege, and require human approval for anything irreversible. This week's disclosure that OpenAI has alerted more than 100 organizations about its own agents' activity shows what happens when containment fails. Our [agentic AI security guide](/posts/protect-your-company-agentic-ai-security-2026) has the full checklist.
+
+**What to pick:** Put a gateway in front of every model call to control cost and switch providers. Sandbox any agent that can run code or reach the network, with no exceptions for internal tools.
+
+## The short version
+
+If you are building today: Postgres with pgvector, hybrid retrieval with a reranker, LangGraph or your provider's SDK, MCP for tools, OpenTelemetry tracing, a real eval dataset, a durable runtime for long tasks, and a gateway plus sandbox around everything. Models change every few weeks. The teams that ship are the ones whose stack around the model can absorb that change.
