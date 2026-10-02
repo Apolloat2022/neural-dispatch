@@ -4,7 +4,8 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import { LogoMark } from "./logo-mark";
 import { ThemeToggle } from "./theme-toggle";
 import { cn } from "@/lib/utils";
 
@@ -60,7 +61,7 @@ export function Navbar() {
             {/* Logo */}
             <Link href="/" onClick={handleLogoClick} className="flex items-center gap-2 py-3 -my-3 pr-2 group">
               <div className="w-8 h-8 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 flex items-center justify-center group-hover:bg-[#00d4ff]/20 group-hover:border-[#00d4ff]/60 transition-all duration-200">
-                <Zap className="w-4 h-4 text-[#00d4ff]" />
+                <LogoMark className="w-5 h-5 text-[#00d4ff]" />
               </div>
               <span className="font-heading font-bold text-lg tracking-tight">
                 <span className="text-foreground">Neural</span>

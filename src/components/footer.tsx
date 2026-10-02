@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Zap, Twitter, Github, Rss } from "lucide-react";
+import { Twitter, Github, Rss } from "lucide-react";
+import { LogoMark } from "./logo-mark";
 import { CATEGORIES } from "@/lib/categories";
 
 const footerLinks = {
@@ -23,7 +24,7 @@ export function Footer() {
           <div className="md:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2 py-2 mb-2">
               <div className="w-8 h-8 rounded-lg bg-[#00d4ff]/10 border border-[#00d4ff]/30 flex items-center justify-center">
-                <Zap className="w-4 h-4 text-[#00d4ff]" />
+                <LogoMark className="w-5 h-5 text-[#00d4ff]" />
               </div>
               <span className="font-heading font-bold text-lg">
                 <span className="text-foreground">Neural</span>
