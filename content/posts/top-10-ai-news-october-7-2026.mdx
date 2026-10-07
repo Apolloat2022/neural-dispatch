@@ -1,0 +1,97 @@
+---
+title: "Top 10 AI News — October 7, 2026"
+date: "2026-10-07"
+category: "Technology"
+excerpt: "OpenAI publishes 372 math results from an unreleased model, the Pentagon says it has stopped using Anthropic, and Google signs a 3.6 GW power deal with Constellation."
+tags: ["ai-news", "daily-brief", "openai", "anthropic", "mistral", "datacenters", "energy", "ai-agents", "layoffs"]
+readTime: "8 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+OpenAI published hundreds of math results from a model nobody outside the company can run, and mathematicians are split on how to treat them. Under the research news, the physical side of AI kept pressing: a 20-year nuclear deal in the US, and a construction halt in Finland.
+
+## 1. OpenAI publishes 372 math results from an unreleased model
+
+OpenAI released 372 mathematical results from an internal model, each of which it says resolves or substantially advances an open question in mathematics or theoretical computer science. The set includes a claimed resolution of the four-dimensional Kakeya conjecture and progress toward the Riemann hypothesis, with proofs posted in a public GitHub repository. A spokesperson told Scientific American the model produced almost every result from a single prompt given to a single agent, though some took multiple attempts.
+
+Cost is the story. Per-result compute averaged about three hours of ChatGPT Pro inference, compared with the 10,000-agent swarm, costing millions of dollars, that OpenAI used on its earlier Navier–Stokes result. Many of the results come with Lean formalizations, which check the logic of a proof mechanically.
+
+Mathematicians are split. MIT's Andrew Sutherland told Scientific American that "until and unless they release the model and people can replicate their results," claims about one-shotting problems should be treated as unverified. The University of Toronto's Daniel Litt argued the opposite: "If we want to know the answers to these math questions, I see no reason why we should ask the company to keep them secret." OpenAI released average compute time but not per-problem prompts or compute figures.
+
+## 2. Pentagon says it has stopped using Anthropic products
+
+A Defense Department official told the BBC the Pentagon "has ceased the use of Anthropic products." Defense Secretary Pete Hegseth ordered a six-month phase-out in February after designating Anthropic a national security supply-chain risk. That followed Anthropic's refusal to remove safeguards against mass surveillance and autonomous weapons uses. The phase-out finished about five weeks after its late-August deadline.
+
+The BBC also reported a conflicting account: several people familiar with the matter said Claude was still being used inside the department as recently as last week, for research, analysis, and intelligence work. Claude had been deeply embedded in the Maven Smart System, the Palantir-run platform that organizes drone and satellite imagery, which helps explain why the removal took so long.
+
+A frontier lab has now been removed from the US military over its usage policy. Every other lab selling to government now has a precedent for what happens when its terms conflict with what the customer wants.
+
+## 3. Google signs a 3.6 GW power deal with Constellation, including 890 MW of new nuclear
+
+Google and Constellation Energy announced a 20-year agreement to add 890 megawatts of new nuclear capacity to the PJM grid through uprates at 11 reactors across six plants in Illinois, New Jersey, and Pennsylvania. A separate 15-year agreement covers 2,700 MW of other power in PJM, for roughly 3.6 GW in total. Constellation is committing more than $4.3 billion of new investment, and the first uprate is expected by 2028.
+
+Uprates raise the output of existing reactors, so they avoid the multi-year licensing and interconnection queues facing new plants. The companies said the work sustains about 4,400 existing jobs and creates about 7,200 construction jobs. Constellation will also expand its use of Google Cloud and Gemini Enterprise, partly to speed up the engineering and regulatory work on the uprates.
+
+The deal relies on getting more out of existing plants rather than waiting for new ones.
+
+## 4. Mistral launches Large 4, a 1-trillion-parameter open-weight model
+
+Mistral introduced Mistral Large 4, a natively multimodal mixture-of-experts model with 1 trillion total parameters and 49 billion active. It was trained on 3,800 Nvidia Grace Blackwell GPUs in European data centers on data covering more than 160 languages, including every official EU language. A preview API is live in Mistral Studio at $1.36 per million input tokens and $4.18 per million output tokens, with full weights due at the end of October.
+
+Mistral reported 82% on a vulnerability-reproduction test and 61.7% on DeepSWE v1.1, and said the model beats GPT-6 Astra on some benchmarks. These are vendor numbers until the weights ship and outside evaluators can run them.
+
+Along with Reflection's Beam earlier this week, Large 4 means two non-Chinese labs are releasing frontier-scale open weights in the same month. For European buyers who must keep both data and model provenance inside the EU, it is the first open model at this scale built and trained there.
+
+## 5. HubSpot cuts about 660 jobs and says AI efficiency is not the reason
+
+HubSpot announced it will eliminate nearly 660 roles, about 7% of staff, as CEO Yamini Rangan removes management layers and reorganizes product teams around customer outcomes. The company expects $65 million to $75 million in charges, mostly severance, with the cuts substantially complete by the end of March 2027. Affected employees get at least 20 weeks of base pay.
+
+HubSpot said explicitly that AI efficiency gains are not driving the cuts, and framed the change as reorganizing around its AI strategy. The distinction matters to investors, who have pushed HubSpot's stock down sharply this year on worries that AI agents threaten seat-based CRM software.
+
+The pattern of flatter management, fewer layers, and teams organized around outcomes keeps showing up in software companies this year, whatever reason executives give for it.
+
+## 6. Anthropic folds Glasswing into a three-tier Cyber Verification Program
+
+Anthropic expanded its Cyber Verification Program into three tiers. Defense Access covers SOC work, incident response, malware reverse engineering, and vulnerability validation. Red Team Access adds authorized penetration testing for organizations. Specialized Access covers testing of safety-critical systems and is currently reviewed with the US government. The program absorbs Project Glasswing and covers Claude Opus 5.5, Sonnet 5.5, and Mythos 5.1.
+
+Anthropic said Glasswing partners found at least 129,000 verified vulnerabilities between April and July 2026, with more than 33,000 rated high or critical. Verified security teams get classifiers that block less often, so legitimate offensive work no longer trips the safeguards built for everyone else.
+
+The change formalizes something the industry has been improvising: verified security teams get stronger models with fewer refusals, and everyone else gets the default safeguards. Last weekend's breaches at Korean banks, carried out with an open-source attack agent, show what the default looks like on the other side.
+
+## 7. Sierra and Meta publish the Personal Agent Protocol
+
+Sierra and Meta published the Personal Agent Protocol, an open standard built on OAuth for how personal AI agents authenticate with businesses. It lets agents identify themselves, declare what they intend to do, carry context across channels, and connect through a company's website, an MCP or OpenAPI interface, or the company's own agent. Founding partners are Walmart, Shopify, Stripe, Rocket, Genesys, and Instinct.
+
+A v0.1 spec is due this month. Payments and fine-grained permissions are listed as future extensions rather than part of the first release. Amazon, OpenAI, and Anthropic are not among the launch partners.
+
+The field of agent-to-business standards is getting crowded, with Stripe and OpenAI's ACP, Google's UCP, and now PAP. Our breakdown of [the agentic commerce protocol wars](/posts/agentic-commerce-payment-protocol-wars-2026) explains where each one sits. PAP is aimed at identity and session authorization rather than checkout.
+
+## 8. Finland orders Google to halt work at two data center sites
+
+Finland's Permit and Supervision Agency ordered Google subsidiary Tuike Finland to stop work affecting the environment at planned data center sites in Muhos and Kajaani until environmental impact assessments are completed. Work must stop no later than October 23. Google confirmed it had felled about 330 hectares of forest at Muhos and nearly 200 hectares at Kajaani. The agency said topsoil was stripped, roads and storage areas built, and ditches altered.
+
+"We understand the concerns and have fallen short of our own high standards in this instance," Google spokesman Sondre Ronander said. The sites are part of a €13 billion Google buildout across northern Finland.
+
+Local resistance to data centers is spreading beyond the US. Finland has been one of Europe's most welcoming markets for them, which makes the order a meaningful signal for how strictly European regulators will enforce environmental rules during the AI buildout.
+
+## 9. SAP agrees to acquire TechWolf for skills intelligence
+
+SAP signed a definitive agreement to acquire TechWolf, a Ghent-based company whose platform analyzes workforce data to keep a continuously updated map of the work employees do and the skills they have. Terms were not disclosed. The deal is expected to close in the fourth quarter, subject to regulatory approval.
+
+TechWolf will become an intelligence layer inside SAP SuccessFactors, feeding decisions on hiring, reskilling, internal mobility, and organizational redesign. It will keep operating independently under CEO Andreas De Neve and keep serving non-SAP customers.
+
+The timing fits this week's labor data. Workday reported that internal job moves fell at 57% of employers, and McKinsey framed the next decade's problem as worker mobility. SAP is betting that HR systems need a live, evidence-based view of skills before AI-driven reorganizations can be managed rather than improvised.
+
+## 10. AI startups are now serial acquirers, Crunchbase data shows
+
+Crunchbase counted 195 acquisitions of AI startups by other venture-backed AI companies through September 29, which is 14% more than in all of 2025. The number of distinct buyers grew only 2%, so a small group of repeat acquirers is driving the increase.
+
+OpenAI leads with 10 such deals this year and 20 over three years. Well-funded startups in legal tech, customer service, and software development have also made multiple purchases. Across three years, 67 repeat buyers accounted for about 42% of all tracked deals. Prices were disclosed for only 12 of the 195 transactions.
+
+Most of these deals buy teams and capabilities rather than revenue. Late-stage AI startups are using high private valuations as currency to consolidate their categories before going public.
+
+## What to watch
+
+Whether outside mathematicians can confirm the Lean-verified subset of OpenAI's results, and whether OpenAI releases per-problem compute data. Mistral's Large 4 and Reflection's Beam weights are both due by month-end. And watch Anthropic's response to the BBC's conflicting accounts of whether the Pentagon has fully removed Claude.
