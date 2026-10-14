@@ -1,0 +1,91 @@
+---
+title: "Top 10 AI News — October 13, 2026"
+date: "2026-10-13"
+category: "Tools"
+excerpt: "Microsoft commits to multi-gigawatt Maia 300 deployments, the IMF says AI investment is holding up global growth, and Anthropic replaces git with a version-control system it built with Claude."
+tags: ["ai-news", "daily-brief", "microsoft-maia", "imf", "anthropic", "linux-kernel", "meta-muse", "nvidia-china", "ai-security"]
+readTime: "8 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+The day's biggest news came from infrastructure and economics: Microsoft put a gigawatt-scale number on its in-house silicon, and the IMF said AI spending is now one of the main forces holding up global growth. The tooling stories were less expected. Anthropic outgrew git, and Linus Torvalds posted a kernel branch he says Claude Code wrote.
+
+## 1. Microsoft plans multi-gigawatt rollout of Maia 300
+
+Microsoft detailed Azure Maia 300, the third generation of its in-house AI accelerator, and said it will scale Maia to "multi-gigawatt deployments" starting in 2027. Scott Guthrie, executive vice president for Cloud and AI, announced the plan. The Register reported it on October 13.
+
+Each Maia 300 carries eight HBM4 stacks with up to 18 TB/s of memory bandwidth. A 96-accelerator rack delivers up to 7x the rack-scale token throughput of Maia 200, and Microsoft claims 40% more tokens per megawatt than leading GPU-based systems.
+
+The chip is built inference-first, for long-context, decode-heavy agent workloads rather than training. A hyperscaler committing gigawatts to its own silicon is the clearest sign yet that inference economics, not training runs, will decide who controls AI margins. Microsoft says it will share more at Ignite next month.
+
+## 2. IMF: AI investment is propping up global growth
+
+The IMF raised its 2026 global growth forecast to 3.1% from 3.0% in July, and projects 3.4% for 2027. Its economists said the AI investment boom is offsetting damage from oil prices that the forecast assumes will average $96 a barrel.
+
+The growth is concentrated. The US and China account for more than three-quarters of net import demand for chips and other AI equipment, and 32 countries now produce 95% of global growth, down from 54 in April. The Fund named an AI-linked stock correction as a key downside risk. On the same day, South Korea's Kospi closed 5.5% lower after falling as much as 7% intraday.
+
+Managing Director Kristalina Georgieva put AI's eventual impact on jobs at "around 40%" of jobs globally, counting roles that are augmented, downgraded, or eliminated. She said some of that impact is already visible. For workforce planners, the takeaway is that the IMF now treats AI as both the main support for the macro forecast and a direct labor-market risk.
+
+## 3. Anthropic replaces git with Scion, built with Claude
+
+Anthropic published an engineering account of how it replaced git for its monorepo with Scion, an in-house version-control system, and Antique, a companion code-review tool. Seven engineers built both over five months.
+
+The trigger was volume. Daily merged changes went from about 2,500 in May to more than 30,000 in September as agents took on more of the coding. CI was doing roughly 25 million checkouts a day, and Anthropic estimated that serving them through git would take over 600 PB of traffic daily. Scion runs on an infrastructure footprint 200x smaller in CPU and memory than the git mirrors it replaced, and checkouts take seconds instead of minutes.
+
+Anthropic says Scion is "by no means a suitable replacement for git for general use." The broader point is that agent-driven commit rates are already breaking tools built around human commit rates. Version control is the first to break, and CI and code review are likely next.
+
+## 4. Linus Torvalds posts a kernel branch written with Claude Code
+
+Torvalds pushed an eight-patch branch named `noref-filemap-read-with-llm` to his Linux tree. It reworks a page-cache bottleneck Matthew Wilcox flagged in 2024. Hardware Busters reported that the cover letter's "Tools" section credits Claude Code with writing the code, the test programs, the review behind his list of open problems, and the first draft of the letter. Torvalds ran the benchmarks himself.
+
+On an 8-thread laptop reading one file, kernel cycles per read fell from about 2,950 to about 725, and throughput rose from roughly 10 million to 30–33 million reads per second. There is one regression: a 16-byte single-thread read into an unmapped page got slower.
+
+The branch sits on 7.3-rc6, has not been merged, and still needs review from memory-management maintainers. Even so, it matters that the Linux maintainer has openly used an AI agent on core kernel code and credited it in the cover letter. That is a big shift in what counts as acceptable practice for low-level systems work.
+
+## 5. Meta ships Muse Wonder and Muse Wonder Full
+
+Meta released Muse Wonder and Muse Wonder Full, which it calls its most capable models, aimed at personal and professional agent tasks. Both were trained at its Prometheus data center.
+
+The headline features are Active Memory, which keeps user context across conversations, and Active Focus, which keeps working on a hard goal by trying other approaches and checking in before important actions. Muse Wonder is available through the Meta Model API and Muse Code. Muse Wonder Full is limited to Muse Code subscribers for now.
+
+Meta is selling these models on agent persistence and memory rather than on raw benchmark scores. This is its strongest push yet into the paid developer market Anthropic and OpenAI have dominated.
+
+## 6. IDC: Nvidia's China share falls to 34%, Huawei at 28%
+
+IDC data reported by The Standard shows Nvidia held 34% of China's data-center AI-chip market in the first half of 2026. It shipped 678,000 accelerators, down 44% year on year. Huawei took 28% with 572,000 units, up from just over 300,000 a year earlier.
+
+The total market was 2.008 million accelerators. Alibaba's T-Head held 7%, Cambricon 5%, Baidu's Kunlunxin 4%, and Hygon 3%. Nine of the 11 Chinese chipmakers IDC tracks grew shipments.
+
+The gap between Nvidia and Huawei is now six points. Export controls and Beijing's push toward domestic chips are reshaping the market faster than most forecasts expected. We traced the early stages of this split in [our analysis of the fracturing AI chip market](/posts/nvidia-ai-chip-market-fracturing-2026).
+
+## 7. NTT Data nears $6.3B Osaka data center for Anthropic
+
+Nikkei Asia reported that NTT Data Group is in the final stages of talks to build Anthropic's first dedicated data center in Japan, in Osaka. The facility could cost $6.3 billion and would rank among the country's largest by processing capacity. Partial operations are targeted for 2028.
+
+The deal is not yet signed. If it closes, it would give Anthropic its own sovereign-capacity foothold in Japan, a market where enterprise and government buyers increasingly want their data processed in-country.
+
+## 8. US bank regulators question banks on agentic AI and Chinese models
+
+Reuters reported that three of the top US banking regulators, including the Federal Reserve, are questioning banks about their AI use. They want to know whether banks use technology developed in China, whether they use AI agents for cybersecurity, and whether they can control autonomous systems.
+
+The questions are supervisory, not new rules. Even so, they mean banks will need shutdown procedures, audit trails, and model provenance documentation in place before they scale agent deployments. The Bank of England and the European Central Bank are separately pushing banks to strengthen recovery plans.
+
+## 9. Pluto Security raises $42M as vibe-coded apps become the new attack surface
+
+Pluto Security came out of stealth with $42 million: an $8.5 million seed led by TLV Partners and a $34 million Series A led by Jump Capital. It monitors the AI tools, MCP servers, extensions, and agents that employees adopt and build, and it can stop an agent's action mid-task.
+
+CEO Shahar Bahat told TechCrunch that about 60% of the risks Pluto detects come from apps vibe-coded by non-developers. Finance is the largest source, and developers rank only fourth. She said the team found malicious activity in every proof of concept it ran. The company has more than 30 enterprise customers and over $2 million in ARR since it started selling in April.
+
+Enterprises' biggest AI exposure may not be their engineering teams but the finance analyst who shipped an internal app over a weekend.
+
+## 10. Decagon explores a sale; ServiceNow says no
+
+Business Insider reported that Decagon, the AI customer-service agent startup valued at $4.5 billion in January, hired an investment bank to evaluate acquisition interest and had held early talks with ServiceNow and others. The same day, ServiceNow president Amit Zavery said in a statement that "ServiceNow has no interest or intention of purchasing Decagon."
+
+The episode shows the bind for well-funded agent startups. Their valuations assume independence, while the incumbents they sell alongside, including ServiceNow, Salesforce, and Zendesk, are building the same agents into their own platforms. Expect more of these companies to test the M&A market before their next round.
+
+## What to watch
+
+Microsoft Ignite next month should give the first hard deployment numbers for Maia 300. Torvalds' branch will show how kernel maintainers review agent-written code. The NTT–Anthropic contract is expected to be signed by the end of March. The IMF's warning of an AI-linked correction will come up again every time a market sells off on AI spending news, as the Kospi did on Tuesday.
