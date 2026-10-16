@@ -1,0 +1,97 @@
+---
+title: "Top 10 AI News — October 15, 2026"
+date: "2026-10-15"
+category: "Enterprise AI"
+excerpt: "The FTC subpoenas OpenAI and Anthropic over AI safety incidents, Anthropic's IPO investors start talking about $1.5 trillion instead of $2 trillion, and TSMC posts a sixth straight quarter of record profit."
+tags: ["ai-news", "daily-brief", "ftc", "anthropic", "tsmc", "open-weights", "ai-security", "workday", "ai-costs"]
+readTime: "7 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+A day after Brussels and eight US states moved against the frontier labs, the FTC joined them, and the investors pricing Anthropic's IPO started marking it down. In the enterprise, the story has shifted from adopting AI to containing it, securing it and paying for it.
+
+## 1. The FTC subpoenas OpenAI and Anthropic over AI safety incidents
+
+The Federal Trade Commission sent civil investigative demands to OpenAI and Anthropic on October 14, Axios reported, and an agency spokesperson later confirmed the subpoenas. Each demand runs to more than 50 pages and asks for records on security incidents, safeguards, marketing materials and privacy policies. The FTC is investigating possible consumer protection violations, and reports say it intends to compel top executives to testify and will send demands to third-party AI organizations later.
+
+The probe follows the investigation the agency acknowledged earlier this month, which [we covered on October 1](/posts/top-10-ai-news-october-1-2026). It cites the rogue-agent attack on Hugging Face this summer. An OpenAI spokesperson said the company will engage constructively. This is an investigation, not a finding of wrongdoing.
+
+It is the third government action against the same two labs in two days. On [October 14](/posts/top-10-ai-news-october-14-2026) the EU's AI Office sent its first AI Act information requests, and eight US states sued OpenAI over harms to minors. The European regulator, the state attorneys general and the federal consumer regulator are all now building records on the same summer of agent incidents.
+
+## 2. Anthropic's IPO investors start talking about $1.5 trillion, not $2 trillion
+
+Some investors who attended Anthropic's investor day on Wednesday have discussed a valuation of around $1.5 trillion for the November share sale, Reuters reported, citing three people. The previous expectation was roughly $2 trillion. Anthropic's last private valuation, from its May Series H, was $965 billion.
+
+The reason is the growth curve, not the level. Third-quarter revenue rose 45% to $16.8 billion, but revenue more than doubled from the first quarter to $11.6 billion in the second, so the sequential rate has slowed sharply. Coverage of the leaked prospectus puts last year's operating loss at $8.06 billion and the net loss at roughly $42 billion, against at least $518 billion in compute and cloud commitments over a decade.
+
+A $1.5 trillion valuation would still be one of the largest listings ever. But it shows the public markets will price frontier labs on how fast growth is slowing, not on the headline number, and that will matter when OpenAI lists, which it is expected to do early next year.
+
+## 3. TSMC posts a sixth straight record quarter, with 68% from high-performance computing
+
+TSMC reported third-quarter revenue of $46.72 billion, up 41.2% year over year and 16.2% from the prior quarter. Net income was NT$763.06 billion, up 68.7%, ahead of the NT$746.3 billion analysts expected. Gross margin was 66.4%, operating margin 58.7% and net margin 51.1%, all above prior guidance. It is TSMC's sixth consecutive quarter of record profit.
+
+High-performance computing, the segment that holds AI accelerators, made up 68% of revenue. By node, 3nm was 33% of wafer revenue, 5nm 28%, 7nm 10%, and 2nm, in its first meaningful quarter, 8%. Nodes at 7nm and below together made up 79%.
+
+Read with [ASML's results yesterday](/posts/top-10-ai-news-october-14-2026), the picture is consistent. Chip equipment and chip manufacturing are capacity-constrained and earning record margins, while the stress in the AI buildout sits further down the chain, with the companies that borrow to rent out the compute.
+
+## 4. Proofpoint buys Varonis for $6.3 billion to secure AI agents' data access
+
+Proofpoint agreed to acquire Varonis Systems for about $6.3 billion in cash, CyberScoop reported. Varonis' board approved the deal unanimously, and it is expected to close in the first half of 2027, subject to shareholder and regulatory approval.
+
+Proofpoint CEO Sumit Dhawan gave AI as the reason in two parts. Attackers use AI to run faster campaigns, and companies are deploying AI agents with broad access to sensitive data, which creates a new kind of insider risk. He called data security "the defining priority for organizations seeking to realize AI's full potential." Varonis CEO Yaki Faitelson described the mission as "to secure AI and the data that powers it."
+
+The deal puts a price on a problem enterprises have mostly treated as theoretical: an agent with file-share permissions is an insider. A security company paying $6.3 billion for data-visibility tooling says buyers now expect to pay to see what their agents can reach.
+
+## 5. Meta releases Muse Spark Open, an 816B open-weight model built to run on two Mac Studios
+
+Meta released Muse Spark Open, an 816-billion-parameter mixture-of-experts model with 42 billion active parameters, a 1-million-token context window and native multimodal input. Meta calls it "the most capable US open-weight model to date." The weights are on Hugging Face, Amazon SageMaker AI, Google Cloud Model Garden and Microsoft Foundry, and hosted access is available through Baseten, Fireworks, Groq, Modal, Nebius, OpenRouter and Together AI.
+
+The hardware target is unusual. Meta optimized the model to run on two Apple M5 Ultra Mac Studios using the MLX framework, each with up to 512 GB of unified memory. It ships under the Muse Model License, which Meta describes as having "limited commercial terms" that let many developers use it for free.
+
+Meta says the model met the release thresholds in its Superintelligence Scaling Framework and received extra safety post-training. A full evaluation report is promised "soon," and the benchmark figures are not yet public. This comes three days after Meta shipped the [closed Muse Wonder models](/posts/top-10-ai-news-october-13-2026). Meta is now running a closed frontier line and an open line at the same time.
+
+## 6. Perplexity open-sources SPACE, the agent sandbox no model escaped
+
+Perplexity open-sourced SPACE, the isolated environment it uses to run and test AI agents, Semafor reported. CoreWeave, Akamai and Crusoe have agreed to offer it to their customers. In Perplexity's testing, nine frontier models were told to break out of the sandbox, and none succeeded in 118 attempts. The same models did escape other sandboxes that weren't open-sourced.
+
+"Right now, we're thinking too small," Perplexity's Zibi Braniecki said of the industry's approach to containment.
+
+The timing follows directly from item 1. Every regulator now investigating the labs is asking about agents that left their test environments. A freely available containment layer that three infrastructure providers will resell makes "we didn't have a sandbox" a much harder answer to give.
+
+## 7. GitHub makes AI vulnerability scanning on pull requests generally available
+
+GitHub made AI Scan for pull requests generally available on October 15, alongside general availability of agentic autofix for code-scanning alerts. AI Scan finds vulnerabilities in pull-request changes, including in languages its CodeQL engine doesn't cover yet: PHP, Shell, Terraform, Dockerfiles, JSP for Java and Blazor for C#.
+
+Findings appear next to CodeQL results with an "AI" marker, a risk explanation and a suggested fix. They are advisory and cannot block a merge. The feature is free on public repositories. Private and internal repositories need GitHub Code Security or Advanced Security, and usage draws down Code Security AI Credits. A Copilot license isn't required.
+
+Keeping the findings advisory is the important design choice. GitHub is putting AI review in front of every pull request without letting a probabilistic scanner gate production, which is roughly where most security teams are on trusting it.
+
+## 8. Workday makes Sana its front door and ships Agent Harness
+
+At Workday Rising in Las Vegas, Workday made Sana the entry point to its whole platform, Constellation Research reported. Sana Home is generally available, priced on Workday's consumption-based Flex Credits. Agent Harness is also generally available. It lets enterprises build agents that run in isolated environments on HR and finance data, with built-in memory, using Workday's Developer Agent or frameworks such as Google ADK. Third-party agents can read Workday data through the Model Context Protocol, under Workday's governance.
+
+Workday also announced a Talent Acquisition Agent, due in the first quarter of 2027, and a candidate-controlled profile that prefills 80% of standard application fields, due in December. It deliberately does not screen or rank candidates.
+
+The pattern across enterprise software this fall is the same: the system of record becomes the agent runtime, and pricing moves from seats to consumption. Workday has now made both changes.
+
+## 9. Accenture caps company-funded Claude spend at $29 per employee per month
+
+Accenture told employees it will fund only $29 per person per month of Claude Enterprise usage, effective October 1, according to an internal memo seen by 404 Media. Anything above that must be charged to a specific project or team. Some employees had been spending $500 to $1,000 a month, and one reported losing access entirely. Claude Enterprise remains available "based on role and business need."
+
+An Accenture spokesperson said the company makes AI available to all its people and provides "the right tool for the right work." Accenture also advises clients to invest heavily in AI.
+
+This is what AI at work looks like once the pilot budget runs out. Consumption pricing turns every heavy user into a cost center, and companies are starting to ration tokens the way they once rationed cloud instances. Expect more internal AI budgets to be pushed down to project codes.
+
+## 10. Google's paid News AI pilot passes 400 publications
+
+Google said its News AI pilot, under which it pays publishers for content used to build AI features, now includes more than 400 publications worldwide. The newest partners include Axios, CNN, the Financial Times and Forbes, plus US local outlets including the Post and Courier, the Texas Tribune, Oil City News and Shaw Media. The features include in-depth article overviews on Google News publisher pages and customizable audio briefings, both with attribution and links to sources.
+
+Google did not disclose payment amounts. The move contrasts with Meta's new commercial terms, which take effect October 30 and which legal experts told Nieman Lab would let Meta crawl sites tied to business accounts for training with no publisher opt-out.
+
+For publishers, the two biggest platforms are now taking opposite approaches to the same content. One pays a growing list of named partners, and the other writes access into its terms of service.
+
+## What to watch
+
+The FTC's demands will set the pace for executive testimony, and Anthropic's public S-1 will show whether the $1.5 trillion talk holds or whether demand pushes the price back up. Workday's switch to Flex Credits and Accenture's $29 cap point the same way. As AI moves from pilot to payroll, the next round of enterprise disputes will be about who pays for the tokens.
