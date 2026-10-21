@@ -1,0 +1,97 @@
+---
+title: "Top 10 AI News — October 20, 2026"
+date: "2026-10-20"
+category: "Research"
+excerpt: "SpaceX's AI unit outsells Starlink with $7.56 billion in quarterly revenue, ByteDance, Alibaba and Tencent order more than $35 billion of Nvidia cards, and Google follows Amazon with a PyTorch backend for its own chips."
+tags: ["ai-news", "daily-brief", "spacex", "nvidia", "pytorch", "google", "anthropic", "minimax", "ai-agents"]
+readTime: "7 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+AI compute became the largest business at SpaceX this quarter, and Chinese tech giants placed orders for more Nvidia cards than Nvidia says it can build. Meanwhile the labs kept publishing evidence of what their models can do unattended, from 64-hour protein design runs to agents that now work for a full day on one task.
+
+## 1. SpaceX's AI unit outsells Starlink
+
+SpaceX reported third-quarter results on October 20, and its AI segment, Super Intelligence, booked $7.56 billion in revenue, up from $2.56 billion in the second quarter and above the $6.47 billion analysts expected, Fortune reported. That beat Starlink's connectivity revenue of $5.25 billion. The segment includes computing capacity leased to Anthropic, Google, Grok and X.
+
+Total revenue reached $14.6 billion, up 161% year over year. Operating income was $2.79 billion, against a $143 million loss in the second quarter — SpaceX's first operating profit as a public company. Capital spending was $19.6 billion for the quarter.
+
+On the call, Elon Musk said the boards of SpaceX and Tesla have each formed special committees of independent directors to review a possible merger, TechCrunch reported. He cited AI software, robotics, the Starmind orbital data center project and the Terafab chip venture as reasons. No terms have been agreed, and Musk noted that Tesla approval would need a majority of all shareholders.
+
+## 2. ByteDance, Alibaba and Tencent order more than $35 billion of Nvidia cards
+
+Reuters reported that ByteDance, Alibaba and Tencent have ordered more than 3 million Nvidia RTX PRO 5500 cards, a workstation chip designed to comply with US export rules for China, at about $11,400 each. Total orders from Chinese customers exceed 6 million units.
+
+Nvidia has told customers it cannot guarantee delivery. It can reportedly produce no more than 3 million of the cards globally in 2027, and some partners may receive only 5% to 10% of what they asked for, as TSMC capacity shifts toward the Rubin data-center platform.
+
+The numbers show where export controls have pushed Chinese demand: into the most capable chip that is still legal to sell, at volumes that turn a workstation product into a supply-constrained data-center part.
+
+## 3. Google releases TorchTPU, a day after Amazon's TorchNeuron
+
+Google announced TorchTPU on October 20, an open-source project that runs PyTorch applications on its Tensor Processing Units with a configuration change rather than a rewrite, TechCrunch reported. Google also released an agent suite to help developers move apps to TPUs and fix errors along the way, and updated LiteRT to work better with PyTorch models on phones and edge devices.
+
+Google said it worked with Meta, Hugging Face, and the teams behind vLLM and SGLang on compatibility. The release came one day after Amazon announced TorchNeuron for Trainium, covered in [yesterday's brief](/posts/top-10-ai-news-october-19-2026).
+
+Two hyperscalers shipping native PyTorch backends in two days is a direct challenge to Nvidia's real moat, which is CUDA rather than the silicon. Whether developers actually move depends on how many models run unmodified, and both companies are now publishing those numbers.
+
+## 4. Claude designs scorpion-toxin binders in a 64-hour run
+
+Anthropic's science team published results on October 20 from a largely autonomous protein-design campaign. An internal research model working in Claude Science ran for 64 hours on one initial prompt and four follow-ups. It chose the toxin targets and design tools, generated 318,484 designs, and co-folded 553,052 design-toxin pairs, using roughly 10,000 GPU hours.
+
+Two labs, Adaptyv Bio and Twist Bioscience, tested 211 designs. Seventeen met strict criteria for binding a scorpion neurotoxin, including 11 of 60 single-toxin designs, an 18% hit rate in line with typical protein-design campaigns. The strongest binders reached single-digit nanomolar affinity.
+
+Anthropic is explicit about the limits. Binding was tested only against recombinant toxins, nothing was tested for neutralization in cells or animals, and none of the 91 designs meant to bind multiple toxins succeeded. It is not an antivenom. It is a measured example of a model running the design loop of a wet-lab campaign with humans steering at the edges.
+
+## 5. Notion agents can now run for more than 24 hours
+
+Notion co-founder Akshay Kothari announced the sixth generation of the Notion Agent harness on October 19. Agents can now work on a single task for more than 24 hours, up from five minutes.
+
+Notion says its upgraded Auto router delivers results comparable to frontier models at about 90% lower average cost, so credits go roughly ten times further. Business and Enterprise seats will include 1,500 Standard credits and 500 Select credits a month, and existing customers move to the new system on November 2.
+
+The jump from minutes to a day is the number that matters. It moves Notion's agents from answering questions about a workspace to doing multi-step projects inside one, and the router is how Notion makes that affordable without raising seat prices.
+
+## 6. MiniMax ships M3.1 Flash at $0.60 per million output tokens
+
+MiniMax released M3.1 Flash on October 19, with output speeds above 200 tokens per second and a median above 170. Pricing is $0.15 per million input tokens and $0.60 per million output tokens, and MiniMax says overall cost on agentic tasks is 70% lower than its predecessor.
+
+The company reports 73.7% on DeepSWE v1.1, 61.7 on OSWorld V2 and 82% on CyberGym, and says it ranks first among Chinese models on OSWorld V2 and Agents' Last Exam. OpenCode confirmed that the anonymous "Space Bunny" test model on its platform was M3.1 Flash.
+
+It is available through the MiniMax API now; weights will be released later. Coming three days after DeepSeek's V4.1-Flash-1017, it keeps pressure on the price floor for coding agents.
+
+## 7. Google launches Gemini for Government
+
+Google announced Gemini for Government in preview for federal, state and local agencies at its Public Sector Summit on October 20, FedScoop reported. It bundles government-specific skills, connectors to common agency systems, the core Gemini platform and third-party partner agents.
+
+The Department of Health and Human Services already uses it, and Google says Gemini is used across the Defense Department. Target uses include policy interpretation, procurement and compliance support, and document intake.
+
+The price is the subplot. Agencies get Gemini through Google's OneGov deal with the General Services Administration at $0.47 per agency, and that deal expires on November 15. What Google charges after that date will show whether the federal market is being bought or won.
+
+## 8. NAB to cut up to 2,500 jobs
+
+National Australia Bank told the ASX on October 20 that it will cut up to 2,500 roles, about 6% of its workforce, Capital Brief reported. About 1,500 of the roles end this year. It is the bank's largest restructure since 2017, and its shares fell after the announcement.
+
+NAB says AI is not the reason. Critics are not convinced: governance expert Helen Bird argued that removing that many risk roles would require technology to replace the labor, and the finance sector union called the plan "corporate spin."
+
+The dispute over attribution is becoming the story in itself. Companies are reluctant to say AI cost jobs, while unions and analysts increasingly assume it did — the same gap that showed up in Deloitte Australia's cuts in [yesterday's brief](/posts/top-10-ai-news-october-19-2026).
+
+## 9. US sanctions five Chinese entities over stolen Google AI secrets
+
+The State Department designated five Chinese entities on October 19 under the Protecting American Intellectual Property Act, Export Compliance Daily reported. They include Shanghai Zhisuan Technology, founded in 2023 by former Google engineer Linwei Ding, and the incubator MiraclePlus along with three of its venture partnerships, which provided Zhisuan's seed capital.
+
+A jury convicted Ding in January of seven counts of economic espionage and seven counts of trade-secret theft involving thousands of pages of Google AI infrastructure documents. The sanctions block the entities' property, bar US persons from investing in them, and cap US bank lending at $10 million a year.
+
+The designations turn a criminal conviction into a financial blockade on the investors who backed the startup, which raises the cost of funding companies built on stolen model infrastructure.
+
+## 10. Eka raises $150 million for a physical AI model
+
+Eka, founded by MIT professor Pulkit Agrawal and former Google DeepMind researcher Tuomas Haarnoja, raised a $150 million Series A at a $1.45 billion post-money valuation, led by Andreessen Horowitz and F-Prime, TechCrunch reported on October 20.
+
+Eka pairs a force-sensitive gripper costing under $1,000 with a "vision-force-action" foundation model trained largely in physics simulation. The company claims about 1,500 picks an hour for objects up to 1 kilogram, against roughly 600 for a person, with reliable pickup more than 95% of the time. Those figures are not independently verified, and the gripper is rated for 5 million cycles, short of the 20 million standard for industrial arms.
+
+Customers are undisclosed pilots in pick-and-place and wire handling. A unicorn valuation at Series A puts the bet on simulation-trained manipulation ahead of any named deployment.
+
+## What to watch
+
+SpaceX's results put a number on how much the AI buildout now pays the companies renting compute, and Anthropic's expected November IPO filing will show the other side of those contracts. TorchTPU and TorchNeuron get their first public test at PyTorch Conference this week. And Google's federal pricing after November 15 will show what Gemini for Government costs once the introductory deal ends.
