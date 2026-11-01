@@ -1,0 +1,97 @@
+---
+title: "Top 10 AI News — November 1, 2026"
+date: "2026-11-01"
+category: "Future of Work"
+excerpt: "Reddit says Google's AI Mode costs it more than a million search referrals a week, the four biggest AI labs back one robots.txt opt-out for training, and an Anthropic hiring manager retires the coding interview."
+tags: ["ai-news", "daily-brief", "reddit", "google", "anthropic", "hiring", "mistral", "samsung", "future-of-work"]
+readTime: "8 min read"
+featured: false
+author: "Neural Dispatch"
+authorRole: "Editorial Desk"
+---
+
+The weekend's biggest stories are about where AI's costs land: on publishers losing search traffic, on workers who lose AI-exposed jobs and stay unemployed longer, and on hiring processes built for a time before Claude could pass them. The supply side moved too, with Mistral's trillion-parameter weights going public and Sam Altman in Korea chasing memory chips.
+
+## 1. Reddit says Google's AI Mode is costing it more than a million search referrals a week
+
+Reddit told investors on its third-quarter call on October 29 that referrals from Google search fell by more than one million a week on average during October. CEO Steve Huffman named Google's AI Overviews and AI Mode as the biggest factor, with lower rankings for machine-translated pages outside the US as a second. Huffman said AI Mode "does not drive traffic", not for Reddit and, as far as he knows, not for anyone else.
+
+The number that moved the stock was the outlook. Reddit warned that if the decline continues at its current pace, daily active uniques could fall by a low-double-digit percentage in the fourth quarter from a base of about 130 million. Shares fell more than 20% the next day. Reddit plans to test a mostly logged-in experience in selected international markets this quarter.
+
+This puts a hard number on what publishers have been saying all year. Reddit licenses its data to Google for AI training. Google's AI answers now draw on that data and, by Reddit's account, keep the click. [Reddit shut its RSS feeds and public API earlier this month](/posts/top-10-ai-news-october-1-2026), citing scrapers. A logged-in wall is the next step.
+
+## 2. OpenAI, Google, Microsoft and Anthropic back one robots.txt opt-out for AI training
+
+On October 30 the four companies each said they would honor a shared signal that lets site owners opt out of AI training without dropping out of search. The signal is a `usage_ai-training` token placed in a robots.txt user-agent group, taken from an IETF Internet-Draft. It is voluntary and has no IETF endorsement yet.
+
+The dates differ. Anthropic says it has already started honoring it, and OpenAI says it will within the next few months. Microsoft published the most detailed schedule: Bing starts applying the new training and grounding preferences on February 1, 2027, and after March 1, 2027 it will no longer treat NoArchive and NoCache tags as training preferences. Google has not given a date.
+
+For publishers this is the first time one line of text covers every major lab. It does not make the opt-out enforceable, and until each company ships, existing crawler-specific blocks should stay in place.
+
+## 3. Goldman Sachs: workers who lose AI-exposed jobs take a month longer to find new ones
+
+Goldman Sachs economist Pierfrancesco Mei analyzed more than 15,000 displaced workers using Labor Department data, Fortune reported on October 30. Workers displaced from AI-exposed jobs since 2025 took about a month longer to find new work than other displaced workers, and were roughly 10 percentage points more likely to still be unemployed a year later.
+
+Age is the sharpest divide. AI-displaced workers aged 35 and older took about five weeks longer to return to full-time work, compared with about three weeks for younger workers. Only about 49% of long-tenured workers who found full-time work again were earning as much as before, down from about 62% in the prior survey. Goldman called the effects "comparable in magnitude" to earlier waves of technological change, which it described as "long-lasting".
+
+Challenger, Gray & Christmas counts 120,136 announced job cuts through September attributed to AI, about 21% of all cuts and the top reason given. Goldman's study is about what happens to those workers afterward, and the answer is a slower recovery that does more damage to older workers.
+
+## 4. Mistral publishes the weights for Large 4
+
+Mistral released the weights for Mistral Large 4 on Hugging Face on October 29, delivering on the end-of-October date it set when the model [launched in preview](/posts/top-10-ai-news-october-7-2026). The main checkpoint is a mixture-of-experts model with about 1 trillion total parameters and 49 billion active per token, shipped in FP8 with an NVFP4 variant.
+
+The license is a modified MIT license: free to use, modify, fine-tune and sell, but a company offering the model as a hosted service needs a separate commercial license from Mistral. Hugging Face's deployment recipe runs the FP8 version across eight Nvidia H200 GPUs, so this is a datacenter model, not one for a workstation.
+
+This is the largest open-weight release from a European lab. Outside evaluators can now check Mistral's own benchmark claims, including its cybersecurity results.
+
+## 5. Sam Altman meets about 50 Samsung executives as the memory shortage deepens
+
+OpenAI's CEO met about 50 Samsung executives in Yongin, south of Seoul, on October 31, Bloomberg reported. Samsung said the attendees came from its electronics, finance and biotech affiliates. Yonhap reported that SK Group chairman Chey Tae-won met Altman in Seoul the same day, with SK hynix executives present.
+
+Neither company announced a new supply contract, volume or price. The meeting builds on an earlier agreement for Samsung to supply memory for OpenAI's Stargate project. Two days earlier, on John Collison's Cheeky Pint podcast, Altman called the way DRAM is split between PCs and data centers "quite terrible" and argued that scarce memory belongs in data centers.
+
+Memory is now the binding constraint on AI buildout, and the CEO of the biggest buyer is lobbying suppliers in person to send more of it to data centers.
+
+## 6. Comcast cuts 634 Philadelphia jobs while it rebuilds around AI agents
+
+Comcast is laying off 634 employees at its Philadelphia headquarters, effective December 31, according to a notice filed with Pennsylvania regulators and reported by The Philadelphia Inquirer on October 30. It is also cutting 119 positions in New Jersey, 159 in Washington state and 82 in California, while planning more than 1,100 new hires, more than 500 of them in Philadelphia.
+
+Executives told analysts they are "fundamentally redesigning our organization", partly by deploying AI agents to handle customer contact. CFO Jason Armstrong has called it "the largest cost transformation in the company's history", with McKinsey advising.
+
+This is the pattern behind the Challenger numbers in item 3. The headcount doesn't simply fall. One set of roles is cut and a different, smaller set is hired, with agents handling the customer contact in between.
+
+## 7. Microsoft's school AI standard with the AFT takes effect
+
+From November 1, AI privacy and safety standards that Microsoft agreed with the American Federation of Teachers apply to every school Microsoft has a contract with, according to AP. The agreement bars Microsoft from using student and educator data to train AI models or for advertising, requires human oversight of AI decisions, and prohibits AI companions designed to foster emotional dependency.
+
+The AFT says the agreement is legally binding and subject to third-party audits. OpenAI and Anthropic have said they are discussing similar pacts with the union. Google has not said whether it will follow.
+
+This is the first enforceable vendor commitment of its kind in US schools. Critics, including Fairplay's Josh Golin, say it works only if every major vendor signs on, and that it leaves aside whether AI belongs in classrooms at all.
+
+## 8. An Anthropic hiring manager retires the coding interview
+
+Felix Rieseberg, an engineering manager at Anthropic, has stopped giving candidates coding interviews, TechRadar reported on October 31. "This month, I laid the traditional coding interview to rest," he wrote, explaining that on React challenges and assembly quizzes, "Claude is now better at both."
+
+In place of whiteboard tests, Rieseberg says he scans résumés and portfolios for "little prototypes that exhibit taste, empathy, and principled thinking". He tells junior engineers that "hunger beats tenure": focus on impact and on understanding the company and its people, and treat a weekend prototype built with AI as proof of work. He says he is still working out a replacement format: "I'm probably not the only manager trying to figure out how to interview for people who build well with AI."
+
+When the company that builds the model drops the test its own model passes, other companies' interview loops are next. For early-career engineers, the signal moves from solving puzzles to shipping things.
+
+## 9. Karpathy builds HackerTube in about two hours with Claude Code
+
+Andrej Karpathy published HackerTube on October 31, a YouTube-style site that shows only videos recommended in Hacker News comments. He wrote that he built it in about two hours on a Saturday morning, using the Claude Code desktop app with Opus 5.5 on medium effort, and a Sonnet workflow to process the comments.
+
+The dataset is about 40,000 spam-filtered Hacker News comments that recommend a YouTube video, which resolve to 6,454 videos across 150 topics from 2007 to 2026. The site has a "For You" feed that keeps its state in the browser, with no accounts. The only work he did by hand was creating an API key, starting a server and buying the domain. "I only talk to Claude and have it do everything," he wrote. "I don't actually do anything resembling traditional engineering anymore."
+
+Read next to item 8, this is the kind of portfolio piece Rieseberg is describing: a scoped, opinionated tool with a clear point of view, built in a morning.
+
+## 10. Companies are rehiring the workers AI replaced
+
+CNBC reported on October 30 on what researchers are calling "AI rebounding": employers bringing back staff they cut for AI. An Orgvue report from March found that 32% of organizations that laid off workers because of AI had to rehire. In an SHL survey of more than 1,000 US workers, nearly one in five said they had been laid off or replaced by AI and then asked to come back. Ford and Amazon were named as having reversed AI-related cuts.
+
+Returning workers set terms. Almost half of US respondents would require a significant raise, 43% would want written job-security guarantees and 40% would want full transparency on how AI would be used in their role. Only 6.6% said they would refuse to return under any circumstances.
+
+This fits [the "botsitting" data from earlier this week](/posts/top-10-ai-news-october-30-2026): supervising AI output takes real human time, and some companies cut people before they had measured how much.
+
+## What to watch
+
+Whether Reddit's fourth-quarter user numbers confirm its warning, and whether other publishers start reporting AI Mode referral losses in hard numbers. Google's implementation date for the shared training opt-out is still missing. Watch for independent benchmarks of Mistral Large 4 now that the weights are public, and for whether OpenAI or Anthropic sign their own agreements with the AFT.
